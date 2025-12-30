@@ -36,6 +36,7 @@ classifiers = [
 dependencies = [
     "build",
     "numpy",
+    "polars>=1.36.1",
 ]
 requires-python = '>=3.9'
 

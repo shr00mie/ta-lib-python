@@ -70,19 +70,6 @@ cdef extern from "ta-lib/ta_defs.h":
     TA_RangeType TA_RangeType_HighLow = 1
     TA_RangeType TA_RangeType_Shadows = 2
 
-    ctypedef int TA_CandleSettingType
-    TA_CandleSettingType TA_BodyLong = 0
-    TA_CandleSettingType TA_BodyVeryLong = 1
-    TA_CandleSettingType TA_BodyShort = 2
-    TA_CandleSettingType TA_BodyDoji = 3
-    TA_CandleSettingType TA_ShadowLong = 4
-    TA_CandleSettingType TA_ShadowVeryLong = 5
-    TA_CandleSettingType TA_ShadowShort = 6
-    TA_CandleSettingType TA_ShadowVeryShort = 7
-    TA_CandleSettingType TA_Near = 8
-    TA_CandleSettingType TA_Far = 9
-    TA_CandleSettingType TA_Equal = 10
-    TA_CandleSettingType TA_AllCandleSettings = 11
 
 cdef extern from "ta-lib/ta_common.h":
     const char *TA_GetVersionString()
@@ -404,6 +391,3 @@ cdef extern from "ta-lib/ta_func.h":
     TA_RetCode TA_SetCompatibility(TA_Compatibility value)
     TA_Compatibility TA_GetCompatibility()
 
-    # TALIB functions for TA_SetCandleSettings
-    TA_RetCode TA_SetCandleSettings(TA_CandleSettingType settingType, TA_RangeType rangeType, int avgPeriod, double factor)
-    TA_RetCode TA_RestoreCandleDefaultSettings(TA_CandleSettingType)

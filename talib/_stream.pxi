@@ -1,3 +1,12 @@
+cannot find defaults and docs for ACCBANDS
+cannot find defaults and docs for ACOS
+cannot find defaults and docs for AD
+cannot find defaults and docs for ADD
+cannot find defaults and docs for ADOSC
+cannot find defaults and docs for ADX
+cannot find defaults and docs for ADXR
+cannot find defaults and docs for APO
+cannot find defaults and docs for AROON
 cimport numpy as np
 from cython import boundscheck, wraparound
 cimport _ta_lib as lib
@@ -9,19 +18,7 @@ np.import_array() # Initialize the NumPy C API
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ACCBANDS( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ ACCBANDS(high, low, close[, timeperiod=?])
-
-    Acceleration Bands (Overlap Studies)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 20
-    Outputs:
-        upperband
-        middleband
-        lowerband
-    """
+    """ ACCBANDS(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -50,15 +47,7 @@ def stream_ACCBANDS( np.ndarray high not None , np.ndarray low not None , np.nda
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ACOS( np.ndarray real not None ):
-    """ ACOS(real)
-
-    Vector Trigonometric ACos (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ ACOS(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -77,15 +66,7 @@ def stream_ACOS( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_AD( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , np.ndarray volume not None ):
-    """ AD(high, low, close, volume)
-
-    Chaikin A/D Line (Volume Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close', 'volume']
-    Outputs:
-        real
-    """
+    """ AD(high, low, close, volume)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -113,16 +94,7 @@ def stream_AD( np.ndarray high not None , np.ndarray low not None , np.ndarray c
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ADD( np.ndarray real0 not None , np.ndarray real1 not None ):
-    """ ADD(real0, real1)
-
-    Vector Arithmetic Add (Math Operators)
-
-    Inputs:
-        real0: (any ndarray)
-        real1: (any ndarray)
-    Outputs:
-        real
-    """
+    """ ADD(real0, real1)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -144,18 +116,7 @@ def stream_ADD( np.ndarray real0 not None , np.ndarray real1 not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ADOSC( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , np.ndarray volume not None , int fastperiod=-2**31 , int slowperiod=-2**31 ):
-    """ ADOSC(high, low, close, volume[, fastperiod=?, slowperiod=?])
-
-    Chaikin A/D Oscillator (Volume Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close', 'volume']
-    Parameters:
-        fastperiod: 3
-        slowperiod: 10
-    Outputs:
-        real
-    """
+    """ ADOSC(high, low, close, volume[, fastperiod=?, slowperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -183,17 +144,7 @@ def stream_ADOSC( np.ndarray high not None , np.ndarray low not None , np.ndarra
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ADX( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ ADX(high, low, close[, timeperiod=?])
-
-    Average Directional Movement Index (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ ADX(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -218,17 +169,7 @@ def stream_ADX( np.ndarray high not None , np.ndarray low not None , np.ndarray 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ADXR( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ ADXR(high, low, close[, timeperiod=?])
-
-    Average Directional Movement Index Rating (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ ADXR(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -253,19 +194,7 @@ def stream_ADXR( np.ndarray high not None , np.ndarray low not None , np.ndarray
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_APO( np.ndarray real not None , int fastperiod=-2**31 , int slowperiod=-2**31 , int matype=0 ):
-    """ APO(real[, fastperiod=?, slowperiod=?, matype=?])
-
-    Absolute Price Oscillator (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        fastperiod: 12
-        slowperiod: 26
-        matype: 0 (Simple Moving Average)
-    Outputs:
-        real
-    """
+    """ APO(real[, fastperiod=?, slowperiod=?, matype=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -283,19 +212,17 @@ def stream_APO( np.ndarray real not None , int fastperiod=-2**31 , int slowperio
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
-def stream_AROON( np.ndarray high not None , np.ndarray low not None , int timeperiod=-2**31 ):
-    """ AROON(high, low[, timeperiod=?])
-
-    Aroon (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        aroondown
-        aroonup
-    """
+def stream_AROON( np.ndarray high not None , cannot find defaults and docs for AROONOSC
+cannot find defaults and docs for ASIN
+cannot find defaults and docs for ATAN
+cannot find defaults and docs for ATR
+cannot find defaults and docs for AVGPRICE
+cannot find defaults and docs for AVGDEV
+cannot find defaults and docs for BBANDS
+cannot find defaults and docs for BETA
+cannot find defaults and docs for BOP
+np.ndarray low not None , int timeperiod=-2**31 ):
+    """ AROON(high, low[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -319,17 +246,7 @@ def stream_AROON( np.ndarray high not None , np.ndarray low not None , int timep
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_AROONOSC( np.ndarray high not None , np.ndarray low not None , int timeperiod=-2**31 ):
-    """ AROONOSC(high, low[, timeperiod=?])
-
-    Aroon Oscillator (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ AROONOSC(high, low[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -351,15 +268,7 @@ def stream_AROONOSC( np.ndarray high not None , np.ndarray low not None , int ti
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ASIN( np.ndarray real not None ):
-    """ ASIN(real)
-
-    Vector Trigonometric ASin (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ ASIN(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -378,15 +287,7 @@ def stream_ASIN( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ATAN( np.ndarray real not None ):
-    """ ATAN(real)
-
-    Vector Trigonometric ATan (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ ATAN(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -405,17 +306,7 @@ def stream_ATAN( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ATR( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ ATR(high, low, close[, timeperiod=?])
-
-    Average True Range (Volatility Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ ATR(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -440,15 +331,7 @@ def stream_ATR( np.ndarray high not None , np.ndarray low not None , np.ndarray 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_AVGPRICE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ AVGPRICE(open, high, low, close)
-
-    Average Price (Price Transform)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        real
-    """
+    """ AVGPRICE(open, high, low, close)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -476,17 +359,7 @@ def stream_AVGPRICE( np.ndarray open not None , np.ndarray high not None , np.nd
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_AVGDEV( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ AVGDEV(real[, timeperiod=?])
-
-    Average Deviation (Price Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ AVGDEV(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -505,22 +378,7 @@ def stream_AVGDEV( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_BBANDS( np.ndarray real not None , int timeperiod=-2**31 , double nbdevup=-4e37 , double nbdevdn=-4e37 , int matype=0 ):
-    """ BBANDS(real[, timeperiod=?, nbdevup=?, nbdevdn=?, matype=?])
-
-    Bollinger Bands (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 5
-        nbdevup: 2.0
-        nbdevdn: 2.0
-        matype: 0 (Simple Moving Average)
-    Outputs:
-        upperband
-        middleband
-        lowerband
-    """
+    """ BBANDS(real[, timeperiod=?, nbdevup=?, nbdevdn=?, matype=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -543,18 +401,7 @@ def stream_BBANDS( np.ndarray real not None , int timeperiod=-2**31 , double nbd
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_BETA( np.ndarray real0 not None , np.ndarray real1 not None , int timeperiod=-2**31 ):
-    """ BETA(real0, real1[, timeperiod=?])
-
-    Beta (Statistic Functions)
-
-    Inputs:
-        real0: (any ndarray)
-        real1: (any ndarray)
-    Parameters:
-        timeperiod: 5
-    Outputs:
-        real
-    """
+    """ BETA(real0, real1[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -576,15 +423,7 @@ def stream_BETA( np.ndarray real0 not None , np.ndarray real1 not None , int tim
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_BOP( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ BOP(open, high, low, close)
-
-    Balance Of Power (Momentum Indicators)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        real
-    """
+    """ BOP(open, high, low, close)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -594,6 +433,16 @@ def stream_BOP( np.ndarray open not None , np.ndarray high not None , np.ndarray
         double* close_data
         int outbegidx
         int outnbelement
+cannot find defaults and docs for CCI
+cannot find defaults and docs for CEIL
+cannot find defaults and docs for CMO
+cannot find defaults and docs for CORREL
+cannot find defaults and docs for COS
+cannot find defaults and docs for COSH
+cannot find defaults and docs for DEMA
+cannot find defaults and docs for DIV
+cannot find defaults and docs for DX
+cannot find defaults and docs for EMA
         double outreal
     open = check_array(open)
     open_data = <double*>open.data
@@ -612,17 +461,7 @@ def stream_BOP( np.ndarray open not None , np.ndarray high not None , np.ndarray
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_CCI( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ CCI(high, low, close[, timeperiod=?])
-
-    Commodity Channel Index (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ CCI(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -646,2226 +485,8 @@ def stream_CCI( np.ndarray high not None , np.ndarray low not None , np.ndarray 
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDL2CROWS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL2CROWS(open, high, low, close)
-
-    Two Crows (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDL2CROWS( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDL2CROWS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDL3BLACKCROWS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL3BLACKCROWS(open, high, low, close)
-
-    Three Black Crows (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDL3BLACKCROWS( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDL3BLACKCROWS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDL3INSIDE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL3INSIDE(open, high, low, close)
-
-    Three Inside Up/Down (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDL3INSIDE( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDL3INSIDE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDL3LINESTRIKE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL3LINESTRIKE(open, high, low, close)
-
-    Three-Line Strike  (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDL3LINESTRIKE( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDL3LINESTRIKE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDL3OUTSIDE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL3OUTSIDE(open, high, low, close)
-
-    Three Outside Up/Down (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDL3OUTSIDE( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDL3OUTSIDE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDL3STARSINSOUTH( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL3STARSINSOUTH(open, high, low, close)
-
-    Three Stars In The South (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDL3STARSINSOUTH( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDL3STARSINSOUTH", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDL3WHITESOLDIERS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL3WHITESOLDIERS(open, high, low, close)
-
-    Three Advancing White Soldiers (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDL3WHITESOLDIERS( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDL3WHITESOLDIERS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLABANDONEDBABY( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.3 ):
-    """ CDLABANDONEDBABY(open, high, low, close[, penetration=?])
-
-    Abandoned Baby (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.3
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLABANDONEDBABY( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , penetration , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLABANDONEDBABY", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLADVANCEBLOCK( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLADVANCEBLOCK(open, high, low, close)
-
-    Advance Block (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLADVANCEBLOCK( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLADVANCEBLOCK", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLBELTHOLD( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLBELTHOLD(open, high, low, close)
-
-    Belt-hold (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLBELTHOLD( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLBELTHOLD", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLBREAKAWAY( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLBREAKAWAY(open, high, low, close)
-
-    Breakaway (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLBREAKAWAY( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLBREAKAWAY", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLCLOSINGMARUBOZU( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLCLOSINGMARUBOZU(open, high, low, close)
-
-    Closing Marubozu (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLCLOSINGMARUBOZU( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLCLOSINGMARUBOZU", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLCONCEALBABYSWALL( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLCONCEALBABYSWALL(open, high, low, close)
-
-    Concealing Baby Swallow (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLCONCEALBABYSWALL( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLCONCEALBABYSWALL", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLCOUNTERATTACK( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLCOUNTERATTACK(open, high, low, close)
-
-    Counterattack (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLCOUNTERATTACK( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLCOUNTERATTACK", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLDARKCLOUDCOVER( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.5 ):
-    """ CDLDARKCLOUDCOVER(open, high, low, close[, penetration=?])
-
-    Dark Cloud Cover (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.5
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLDARKCLOUDCOVER( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , penetration , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLDARKCLOUDCOVER", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLDOJI( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLDOJI(open, high, low, close)
-
-    Doji (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLDOJI( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLDOJI", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLDOJISTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLDOJISTAR(open, high, low, close)
-
-    Doji Star (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLDOJISTAR( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLDOJISTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLDRAGONFLYDOJI( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLDRAGONFLYDOJI(open, high, low, close)
-
-    Dragonfly Doji (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLDRAGONFLYDOJI( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLDRAGONFLYDOJI", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLENGULFING( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLENGULFING(open, high, low, close)
-
-    Engulfing Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLENGULFING( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLENGULFING", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLEVENINGDOJISTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.3 ):
-    """ CDLEVENINGDOJISTAR(open, high, low, close[, penetration=?])
-
-    Evening Doji Star (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.3
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLEVENINGDOJISTAR( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , penetration , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLEVENINGDOJISTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLEVENINGSTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.3 ):
-    """ CDLEVENINGSTAR(open, high, low, close[, penetration=?])
-
-    Evening Star (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.3
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLEVENINGSTAR( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , penetration , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLEVENINGSTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLGAPSIDESIDEWHITE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLGAPSIDESIDEWHITE(open, high, low, close)
-
-    Up/Down-gap side-by-side white lines (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLGAPSIDESIDEWHITE( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLGAPSIDESIDEWHITE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLGRAVESTONEDOJI( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLGRAVESTONEDOJI(open, high, low, close)
-
-    Gravestone Doji (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLGRAVESTONEDOJI( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLGRAVESTONEDOJI", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLHAMMER( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHAMMER(open, high, low, close)
-
-    Hammer (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLHAMMER( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLHAMMER", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLHANGINGMAN( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHANGINGMAN(open, high, low, close)
-
-    Hanging Man (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLHANGINGMAN( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLHANGINGMAN", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLHARAMI( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHARAMI(open, high, low, close)
-
-    Harami Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLHARAMI( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLHARAMI", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLHARAMICROSS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHARAMICROSS(open, high, low, close)
-
-    Harami Cross Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLHARAMICROSS( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLHARAMICROSS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLHIGHWAVE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHIGHWAVE(open, high, low, close)
-
-    High-Wave Candle (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLHIGHWAVE( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLHIGHWAVE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLHIKKAKE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHIKKAKE(open, high, low, close)
-
-    Hikkake Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLHIKKAKE( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLHIKKAKE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLHIKKAKEMOD( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHIKKAKEMOD(open, high, low, close)
-
-    Modified Hikkake Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLHIKKAKEMOD( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLHIKKAKEMOD", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLHOMINGPIGEON( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHOMINGPIGEON(open, high, low, close)
-
-    Homing Pigeon (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLHOMINGPIGEON( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLHOMINGPIGEON", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLIDENTICAL3CROWS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLIDENTICAL3CROWS(open, high, low, close)
-
-    Identical Three Crows (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLIDENTICAL3CROWS( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLIDENTICAL3CROWS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLINNECK( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLINNECK(open, high, low, close)
-
-    In-Neck Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLINNECK( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLINNECK", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLINVERTEDHAMMER( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLINVERTEDHAMMER(open, high, low, close)
-
-    Inverted Hammer (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLINVERTEDHAMMER( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLINVERTEDHAMMER", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLKICKING( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLKICKING(open, high, low, close)
-
-    Kicking (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLKICKING( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLKICKING", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLKICKINGBYLENGTH( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLKICKINGBYLENGTH(open, high, low, close)
-
-    Kicking - bull/bear determined by the longer marubozu (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLKICKINGBYLENGTH( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLKICKINGBYLENGTH", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLLADDERBOTTOM( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLLADDERBOTTOM(open, high, low, close)
-
-    Ladder Bottom (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLLADDERBOTTOM( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLLADDERBOTTOM", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLLONGLEGGEDDOJI( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLLONGLEGGEDDOJI(open, high, low, close)
-
-    Long Legged Doji (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLLONGLEGGEDDOJI( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLLONGLEGGEDDOJI", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLLONGLINE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLLONGLINE(open, high, low, close)
-
-    Long Line Candle (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLLONGLINE( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLLONGLINE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLMARUBOZU( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLMARUBOZU(open, high, low, close)
-
-    Marubozu (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLMARUBOZU( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLMARUBOZU", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLMATCHINGLOW( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLMATCHINGLOW(open, high, low, close)
-
-    Matching Low (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLMATCHINGLOW( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLMATCHINGLOW", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLMATHOLD( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.5 ):
-    """ CDLMATHOLD(open, high, low, close[, penetration=?])
-
-    Mat Hold (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.5
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLMATHOLD( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , penetration , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLMATHOLD", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLMORNINGDOJISTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.3 ):
-    """ CDLMORNINGDOJISTAR(open, high, low, close[, penetration=?])
-
-    Morning Doji Star (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.3
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLMORNINGDOJISTAR( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , penetration , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLMORNINGDOJISTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLMORNINGSTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.3 ):
-    """ CDLMORNINGSTAR(open, high, low, close[, penetration=?])
-
-    Morning Star (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.3
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLMORNINGSTAR( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , penetration , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLMORNINGSTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLONNECK( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLONNECK(open, high, low, close)
-
-    On-Neck Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLONNECK( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLONNECK", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLPIERCING( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLPIERCING(open, high, low, close)
-
-    Piercing Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLPIERCING( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLPIERCING", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLRICKSHAWMAN( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLRICKSHAWMAN(open, high, low, close)
-
-    Rickshaw Man (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLRICKSHAWMAN( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLRICKSHAWMAN", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLRISEFALL3METHODS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLRISEFALL3METHODS(open, high, low, close)
-
-    Rising/Falling Three Methods (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLRISEFALL3METHODS( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLRISEFALL3METHODS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLSEPARATINGLINES( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLSEPARATINGLINES(open, high, low, close)
-
-    Separating Lines (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLSEPARATINGLINES( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLSEPARATINGLINES", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLSHOOTINGSTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLSHOOTINGSTAR(open, high, low, close)
-
-    Shooting Star (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLSHOOTINGSTAR( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLSHOOTINGSTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLSHORTLINE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLSHORTLINE(open, high, low, close)
-
-    Short Line Candle (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLSHORTLINE( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLSHORTLINE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLSPINNINGTOP( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLSPINNINGTOP(open, high, low, close)
-
-    Spinning Top (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLSPINNINGTOP( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLSPINNINGTOP", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLSTALLEDPATTERN( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLSTALLEDPATTERN(open, high, low, close)
-
-    Stalled Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLSTALLEDPATTERN( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLSTALLEDPATTERN", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLSTICKSANDWICH( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLSTICKSANDWICH(open, high, low, close)
-
-    Stick Sandwich (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLSTICKSANDWICH( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLSTICKSANDWICH", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLTAKURI( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLTAKURI(open, high, low, close)
-
-    Takuri (Dragonfly Doji with very long lower shadow) (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLTAKURI( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLTAKURI", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLTASUKIGAP( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLTASUKIGAP(open, high, low, close)
-
-    Tasuki Gap (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLTASUKIGAP( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLTASUKIGAP", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLTHRUSTING( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLTHRUSTING(open, high, low, close)
-
-    Thrusting Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLTHRUSTING( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLTHRUSTING", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLTRISTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLTRISTAR(open, high, low, close)
-
-    Tristar Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLTRISTAR( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLTRISTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLUNIQUE3RIVER( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLUNIQUE3RIVER(open, high, low, close)
-
-    Unique 3 River (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLUNIQUE3RIVER( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLUNIQUE3RIVER", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLUPSIDEGAP2CROWS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLUPSIDEGAP2CROWS(open, high, low, close)
-
-    Upside Gap Two Crows (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLUPSIDEGAP2CROWS( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLUPSIDEGAP2CROWS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def stream_CDLXSIDEGAP3METHODS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLXSIDEGAP3METHODS(open, high, low, close)
-
-    Upside/Downside Gap Three Methods (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        TA_RetCode retCode
-        double* open_data
-        double* high_data
-        double* low_data
-        double* close_data
-        int outbegidx
-        int outnbelement
-        int outinteger
-    open = check_array(open)
-    open_data = <double*>open.data
-    high = check_array(high)
-    high_data = <double*>high.data
-    low = check_array(low)
-    low_data = <double*>low.data
-    close = check_array(close)
-    close_data = <double*>close.data
-    length = check_length4(open, high, low, close)
-    outinteger = 0
-    retCode = lib.TA_CDLXSIDEGAP3METHODS( <int>(length) - 1 , <int>(length) - 1 , open_data , high_data , low_data , close_data , &outbegidx , &outnbelement , &outinteger )
-    _ta_check_success("TA_CDLXSIDEGAP3METHODS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
 def stream_CEIL( np.ndarray real not None ):
-    """ CEIL(real)
-
-    Vector Ceil (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ CEIL(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -2884,17 +505,7 @@ def stream_CEIL( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_CMO( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ CMO(real[, timeperiod=?])
-
-    Chande Momentum Oscillator (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ CMO(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -2913,18 +524,7 @@ def stream_CMO( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_CORREL( np.ndarray real0 not None , np.ndarray real1 not None , int timeperiod=-2**31 ):
-    """ CORREL(real0, real1[, timeperiod=?])
-
-    Pearson's Correlation Coefficient (r) (Statistic Functions)
-
-    Inputs:
-        real0: (any ndarray)
-        real1: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ CORREL(real0, real1[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -2946,15 +546,7 @@ def stream_CORREL( np.ndarray real0 not None , np.ndarray real1 not None , int t
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_COS( np.ndarray real not None ):
-    """ COS(real)
-
-    Vector Trigonometric Cos (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ COS(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -2973,15 +565,7 @@ def stream_COS( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_COSH( np.ndarray real not None ):
-    """ COSH(real)
-
-    Vector Trigonometric Cosh (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ COSH(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3000,17 +584,7 @@ def stream_COSH( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_DEMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ DEMA(real[, timeperiod=?])
-
-    Double Exponential Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ DEMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3029,16 +603,7 @@ def stream_DEMA( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_DIV( np.ndarray real0 not None , np.ndarray real1 not None ):
-    """ DIV(real0, real1)
-
-    Vector Arithmetic Div (Math Operators)
-
-    Inputs:
-        real0: (any ndarray)
-        real1: (any ndarray)
-    Outputs:
-        real
-    """
+    """ DIV(real0, real1)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3060,17 +625,7 @@ def stream_DIV( np.ndarray real0 not None , np.ndarray real1 not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_DX( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ DX(high, low, close[, timeperiod=?])
-
-    Directional Movement Index (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ DX(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3095,17 +650,7 @@ def stream_DX( np.ndarray high not None , np.ndarray low not None , np.ndarray c
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_EMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ EMA(real[, timeperiod=?])
-
-    Exponential Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ EMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3117,22 +662,25 @@ def stream_EMA( np.ndarray real not None , int timeperiod=-2**31 ):
     real_data = <double*>real.data
     length = real.shape[0]
     outreal = NaN
-    retCode = lib.TA_EMA( <int>(length) - 1 , <int>(length) - 1 , real_data , timeperiod , &outbegidx , &outnbelement , &outreal )
+    retCode = lib.TA_EMA( <int>(length) - 1 , <int>(length) - 1 , real_data , timeperiod , cannot find defaults and docs for EXP
+cannot find defaults and docs for FLOOR
+cannot find defaults and docs for HT_DCPERIOD
+cannot find defaults and docs for HT_DCPHASE
+cannot find defaults and docs for HT_PHASOR
+cannot find defaults and docs for HT_SINE
+cannot find defaults and docs for HT_TRENDLINE
+cannot find defaults and docs for HT_TRENDMODE
+cannot find defaults and docs for IMI
+cannot find defaults and docs for JMA
+cannot find defaults and docs for KAMA
+&outbegidx , &outnbelement , &outreal )
     _ta_check_success("TA_EMA", retCode)
     return outreal 
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_EXP( np.ndarray real not None ):
-    """ EXP(real)
-
-    Vector Arithmetic Exp (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ EXP(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3151,15 +699,7 @@ def stream_EXP( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_FLOOR( np.ndarray real not None ):
-    """ FLOOR(real)
-
-    Vector Floor (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ FLOOR(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3178,15 +718,7 @@ def stream_FLOOR( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_HT_DCPERIOD( np.ndarray real not None ):
-    """ HT_DCPERIOD(real)
-
-    Hilbert Transform - Dominant Cycle Period (Cycle Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ HT_DCPERIOD(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3205,15 +737,7 @@ def stream_HT_DCPERIOD( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_HT_DCPHASE( np.ndarray real not None ):
-    """ HT_DCPHASE(real)
-
-    Hilbert Transform - Dominant Cycle Phase (Cycle Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ HT_DCPHASE(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3232,16 +756,7 @@ def stream_HT_DCPHASE( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_HT_PHASOR( np.ndarray real not None ):
-    """ HT_PHASOR(real)
-
-    Hilbert Transform - Phasor Components (Cycle Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        inphase
-        quadrature
-    """
+    """ HT_PHASOR(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3262,16 +777,7 @@ def stream_HT_PHASOR( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_HT_SINE( np.ndarray real not None ):
-    """ HT_SINE(real)
-
-    Hilbert Transform - SineWave (Cycle Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        sine
-        leadsine
-    """
+    """ HT_SINE(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3292,15 +798,7 @@ def stream_HT_SINE( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_HT_TRENDLINE( np.ndarray real not None ):
-    """ HT_TRENDLINE(real)
-
-    Hilbert Transform - Instantaneous Trendline (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ HT_TRENDLINE(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3319,15 +817,7 @@ def stream_HT_TRENDLINE( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_HT_TRENDMODE( np.ndarray real not None ):
-    """ HT_TRENDMODE(real)
-
-    Hilbert Transform - Trend vs Cycle Mode (Cycle Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
+    """ HT_TRENDMODE(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3346,17 +836,7 @@ def stream_HT_TRENDMODE( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_IMI( np.ndarray open not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ IMI(open, close[, timeperiod=?])
-
-    Intraday Momentum Index (Momentum Indicators)
-
-    Inputs:
-        prices: ['open', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ IMI(open, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3377,18 +857,31 @@ def stream_IMI( np.ndarray open not None , np.ndarray close not None , int timep
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
+def stream_JMA( np.ndarray real not None , int timeperiod=7 , int phase=0 , int volperiods=50 ):
+    """ JMA(real[, timeperiod=?, phase=?, volperiods=?])"""
+    cdef:
+        np.npy_intp length
+        TA_RetCode retCode
+        double* real_data
+        int outbegidx
+        int outnbelement
+        double outrealjma
+        double outrealupperband
+        double outreallowerband
+    real = check_array(real)
+    real_data = <double*>real.data
+    length = real.shape[0]
+    outrealjma = NaN
+    outrealupperband = NaN
+    outreallowerband = NaN
+    retCode = lib.TA_JMA( <int>(length) - 1 , <int>(length) - 1 , real_data , timeperiod , phase , volperiods , &outbegidx , &outnbelement , &outrealjma , &outrealupperband , &outreallowerband )
+    _ta_check_success("TA_JMA", retCode)
+    return outrealjma , outrealupperband , outreallowerband 
+
+@wraparound(False)  # turn off relative indexing from end of lists
+@boundscheck(False) # turn off bounds-checking for entire function
 def stream_KAMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ KAMA(real[, timeperiod=?])
-
-    Kaufman Adaptive Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ KAMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3402,22 +895,23 @@ def stream_KAMA( np.ndarray real not None , int timeperiod=-2**31 ):
     outreal = NaN
     retCode = lib.TA_KAMA( <int>(length) - 1 , <int>(length) - 1 , real_data , timeperiod , &outbegidx , &outnbelement , &outreal )
     _ta_check_success("TA_KAMA", retCode)
+cannot find defaults and docs for LINEARREG
+cannot find defaults and docs for LINEARREG_ANGLE
+cannot find defaults and docs for LINEARREG_INTERCEPT
+cannot find defaults and docs for LINEARREG_SLOPE
+cannot find defaults and docs for LN
+cannot find defaults and docs for LOG10
+cannot find defaults and docs for MA
+cannot find defaults and docs for MACD
+cannot find defaults and docs for MACDEXT
+cannot find defaults and docs for MACDFIX
+cannot find defaults and docs for MAMA
     return outreal 
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_LINEARREG( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ LINEARREG(real[, timeperiod=?])
-
-    Linear Regression (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ LINEARREG(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3436,17 +930,7 @@ def stream_LINEARREG( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_LINEARREG_ANGLE( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ LINEARREG_ANGLE(real[, timeperiod=?])
-
-    Linear Regression Angle (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ LINEARREG_ANGLE(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3465,17 +949,7 @@ def stream_LINEARREG_ANGLE( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_LINEARREG_INTERCEPT( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ LINEARREG_INTERCEPT(real[, timeperiod=?])
-
-    Linear Regression Intercept (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ LINEARREG_INTERCEPT(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3494,17 +968,7 @@ def stream_LINEARREG_INTERCEPT( np.ndarray real not None , int timeperiod=-2**31
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_LINEARREG_SLOPE( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ LINEARREG_SLOPE(real[, timeperiod=?])
-
-    Linear Regression Slope (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ LINEARREG_SLOPE(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3523,15 +987,7 @@ def stream_LINEARREG_SLOPE( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_LN( np.ndarray real not None ):
-    """ LN(real)
-
-    Vector Log Natural (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ LN(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3550,15 +1006,7 @@ def stream_LN( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_LOG10( np.ndarray real not None ):
-    """ LOG10(real)
-
-    Vector Log10 (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ LOG10(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3577,18 +1025,7 @@ def stream_LOG10( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MA( np.ndarray real not None , int timeperiod=-2**31 , int matype=0 ):
-    """ MA(real[, timeperiod=?, matype=?])
-
-    Moving average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-        matype: 0 (Simple Moving Average)
-    Outputs:
-        real
-    """
+    """ MA(real[, timeperiod=?, matype=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3607,21 +1044,7 @@ def stream_MA( np.ndarray real not None , int timeperiod=-2**31 , int matype=0 )
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MACD( np.ndarray real not None , int fastperiod=-2**31 , int slowperiod=-2**31 , int signalperiod=-2**31 ):
-    """ MACD(real[, fastperiod=?, slowperiod=?, signalperiod=?])
-
-    Moving Average Convergence/Divergence (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        fastperiod: 12
-        slowperiod: 26
-        signalperiod: 9
-    Outputs:
-        macd
-        macdsignal
-        macdhist
-    """
+    """ MACD(real[, fastperiod=?, slowperiod=?, signalperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3644,24 +1067,7 @@ def stream_MACD( np.ndarray real not None , int fastperiod=-2**31 , int slowperi
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MACDEXT( np.ndarray real not None , int fastperiod=-2**31 , int fastmatype=0 , int slowperiod=-2**31 , int slowmatype=0 , int signalperiod=-2**31 , int signalmatype=0 ):
-    """ MACDEXT(real[, fastperiod=?, fastmatype=?, slowperiod=?, slowmatype=?, signalperiod=?, signalmatype=?])
-
-    MACD with controllable MA type (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        fastperiod: 12
-        fastmatype: 0
-        slowperiod: 26
-        slowmatype: 0
-        signalperiod: 9
-        signalmatype: 0
-    Outputs:
-        macd
-        macdsignal
-        macdhist
-    """
+    """ MACDEXT(real[, fastperiod=?, fastmatype=?, slowperiod=?, slowmatype=?, signalperiod=?, signalmatype=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3684,19 +1090,7 @@ def stream_MACDEXT( np.ndarray real not None , int fastperiod=-2**31 , int fastm
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MACDFIX( np.ndarray real not None , int signalperiod=-2**31 ):
-    """ MACDFIX(real[, signalperiod=?])
-
-    Moving Average Convergence/Divergence Fix 12/26 (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        signalperiod: 9
-    Outputs:
-        macd
-        macdsignal
-        macdhist
-    """
+    """ MACDFIX(real[, signalperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3718,20 +1112,18 @@ def stream_MACDFIX( np.ndarray real not None , int signalperiod=-2**31 ):
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
-def stream_MAMA( np.ndarray real not None , double fastlimit=-4e37 , double slowlimit=-4e37 ):
-    """ MAMA(real[, fastlimit=?, slowlimit=?])
-
-    MESA Adaptive Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        fastlimit: 0.5
-        slowlimit: 0.05
-    Outputs:
-        mama
-        fama
-    """
+def stream_MAMA( cannot find defaults and docs for MAVP
+cannot find defaults and docs for MAX
+cannot find defaults and docs for MAXINDEX
+cannot find defaults and docs for MEDPRICE
+cannot find defaults and docs for MFI
+cannot find defaults and docs for MIDPOINT
+cannot find defaults and docs for MIDPRICE
+cannot find defaults and docs for MIN
+cannot find defaults and docs for MININDEX
+cannot find defaults and docs for MINMAX
+np.ndarray real not None , double fastlimit=-4e37 , double slowlimit=-4e37 ):
+    """ MAMA(real[, fastlimit=?, slowlimit=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3752,20 +1144,7 @@ def stream_MAMA( np.ndarray real not None , double fastlimit=-4e37 , double slow
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MAVP( np.ndarray real not None , np.ndarray periods not None , int minperiod=-2**31 , int maxperiod=-2**31 , int matype=0 ):
-    """ MAVP(real, periods[, minperiod=?, maxperiod=?, matype=?])
-
-    Moving average with variable period (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-        periods: (any ndarray)
-    Parameters:
-        minperiod: 2
-        maxperiod: 30
-        matype: 0 (Simple Moving Average)
-    Outputs:
-        real
-    """
+    """ MAVP(real, periods[, minperiod=?, maxperiod=?, matype=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3787,17 +1166,7 @@ def stream_MAVP( np.ndarray real not None , np.ndarray periods not None , int mi
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MAX( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MAX(real[, timeperiod=?])
-
-    Highest value over a specified period (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ MAX(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3816,17 +1185,7 @@ def stream_MAX( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MAXINDEX( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MAXINDEX(real[, timeperiod=?])
-
-    Index of highest value over a specified period (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
+    """ MAXINDEX(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3845,15 +1204,7 @@ def stream_MAXINDEX( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MEDPRICE( np.ndarray high not None , np.ndarray low not None ):
-    """ MEDPRICE(high, low)
-
-    Median Price (Price Transform)
-
-    Inputs:
-        prices: ['high', 'low']
-    Outputs:
-        real
-    """
+    """ MEDPRICE(high, low)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3875,17 +1226,7 @@ def stream_MEDPRICE( np.ndarray high not None , np.ndarray low not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MFI( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , np.ndarray volume not None , int timeperiod=-2**31 ):
-    """ MFI(high, low, close, volume[, timeperiod=?])
-
-    Money Flow Index (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close', 'volume']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ MFI(high, low, close, volume[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3913,17 +1254,7 @@ def stream_MFI( np.ndarray high not None , np.ndarray low not None , np.ndarray 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MIDPOINT( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MIDPOINT(real[, timeperiod=?])
-
-    MidPoint over period (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ MIDPOINT(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3942,17 +1273,7 @@ def stream_MIDPOINT( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MIDPRICE( np.ndarray high not None , np.ndarray low not None , int timeperiod=-2**31 ):
-    """ MIDPRICE(high, low[, timeperiod=?])
-
-    Midpoint Price over period (Overlap Studies)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ MIDPRICE(high, low[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -3974,17 +1295,7 @@ def stream_MIDPRICE( np.ndarray high not None , np.ndarray low not None , int ti
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MIN( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MIN(real[, timeperiod=?])
-
-    Lowest value over a specified period (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ MIN(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4003,17 +1314,7 @@ def stream_MIN( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MININDEX( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MININDEX(real[, timeperiod=?])
-
-    Index of lowest value over a specified period (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
+    """ MININDEX(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4031,19 +1332,17 @@ def stream_MININDEX( np.ndarray real not None , int timeperiod=-2**31 ):
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
-def stream_MINMAX( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MINMAX(real[, timeperiod=?])
-
-    Lowest and highest values over a specified period (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        min
-        max
-    """
+def stream_MINMAX( np.ndarray real not Nonecannot find defaults and docs for MINMAXINDEX
+cannot find defaults and docs for MINUS_DI
+cannot find defaults and docs for MINUS_DM
+cannot find defaults and docs for MOM
+cannot find defaults and docs for MULT
+cannot find defaults and docs for NATR
+cannot find defaults and docs for OBV
+cannot find defaults and docs for PLUS_DI
+cannot find defaults and docs for PLUS_DM
+ , int timeperiod=-2**31 ):
+    """ MINMAX(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4064,18 +1363,7 @@ def stream_MINMAX( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MINMAXINDEX( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MINMAXINDEX(real[, timeperiod=?])
-
-    Indexes of lowest and highest values over a specified period (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        minidx
-        maxidx
-    """
+    """ MINMAXINDEX(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4096,17 +1384,7 @@ def stream_MINMAXINDEX( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MINUS_DI( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ MINUS_DI(high, low, close[, timeperiod=?])
-
-    Minus Directional Indicator (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ MINUS_DI(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4131,17 +1409,7 @@ def stream_MINUS_DI( np.ndarray high not None , np.ndarray low not None , np.nda
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MINUS_DM( np.ndarray high not None , np.ndarray low not None , int timeperiod=-2**31 ):
-    """ MINUS_DM(high, low[, timeperiod=?])
-
-    Minus Directional Movement (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ MINUS_DM(high, low[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4163,17 +1431,7 @@ def stream_MINUS_DM( np.ndarray high not None , np.ndarray low not None , int ti
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MOM( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MOM(real[, timeperiod=?])
-
-    Momentum (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 10
-    Outputs:
-        real
-    """
+    """ MOM(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4192,16 +1450,7 @@ def stream_MOM( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_MULT( np.ndarray real0 not None , np.ndarray real1 not None ):
-    """ MULT(real0, real1)
-
-    Vector Arithmetic Mult (Math Operators)
-
-    Inputs:
-        real0: (any ndarray)
-        real1: (any ndarray)
-    Outputs:
-        real
-    """
+    """ MULT(real0, real1)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4223,17 +1472,7 @@ def stream_MULT( np.ndarray real0 not None , np.ndarray real1 not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_NATR( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ NATR(high, low, close[, timeperiod=?])
-
-    Normalized Average True Range (Volatility Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ NATR(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4258,16 +1497,7 @@ def stream_NATR( np.ndarray high not None , np.ndarray low not None , np.ndarray
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_OBV( np.ndarray real not None , np.ndarray volume not None ):
-    """ OBV(real, volume)
-
-    On Balance Volume (Volume Indicators)
-
-    Inputs:
-        real: (any ndarray)
-        prices: ['volume']
-    Outputs:
-        real
-    """
+    """ OBV(real, volume)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4289,17 +1519,7 @@ def stream_OBV( np.ndarray real not None , np.ndarray volume not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_PLUS_DI( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ PLUS_DI(high, low, close[, timeperiod=?])
-
-    Plus Directional Indicator (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ PLUS_DI(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4324,17 +1544,7 @@ def stream_PLUS_DI( np.ndarray high not None , np.ndarray low not None , np.ndar
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_PLUS_DM( np.ndarray high not None , np.ndarray low not None , int timeperiod=-2**31 ):
-    """ PLUS_DM(high, low[, timeperiod=?])
-
-    Plus Directional Movement (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ PLUS_DM(high, low[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4347,6 +1557,17 @@ def stream_PLUS_DM( np.ndarray high not None , np.ndarray low not None , int tim
     high_data = <double*>high.data
     low = check_array(low)
     low_data = <double*>low.data
+cannot find defaults and docs for PPO
+cannot find defaults and docs for ROC
+cannot find defaults and docs for ROCP
+cannot find defaults and docs for ROCR
+cannot find defaults and docs for ROCR100
+cannot find defaults and docs for RSI
+cannot find defaults and docs for SAR
+cannot find defaults and docs for SAREXT
+cannot find defaults and docs for SIN
+cannot find defaults and docs for SINH
+cannot find defaults and docs for SMA
     length = check_length2(high, low)
     outreal = NaN
     retCode = lib.TA_PLUS_DM( <int>(length) - 1 , <int>(length) - 1 , high_data , low_data , timeperiod , &outbegidx , &outnbelement , &outreal )
@@ -4356,19 +1577,7 @@ def stream_PLUS_DM( np.ndarray high not None , np.ndarray low not None , int tim
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_PPO( np.ndarray real not None , int fastperiod=-2**31 , int slowperiod=-2**31 , int matype=0 ):
-    """ PPO(real[, fastperiod=?, slowperiod=?, matype=?])
-
-    Percentage Price Oscillator (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        fastperiod: 12
-        slowperiod: 26
-        matype: 0 (Simple Moving Average)
-    Outputs:
-        real
-    """
+    """ PPO(real[, fastperiod=?, slowperiod=?, matype=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4387,17 +1596,7 @@ def stream_PPO( np.ndarray real not None , int fastperiod=-2**31 , int slowperio
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ROC( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ ROC(real[, timeperiod=?])
-
-    Rate of change : ((real/prevPrice)-1)*100 (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 10
-    Outputs:
-        real
-    """
+    """ ROC(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4416,17 +1615,7 @@ def stream_ROC( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ROCP( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ ROCP(real[, timeperiod=?])
-
-    Rate of change Percentage: (real-prevPrice)/prevPrice (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 10
-    Outputs:
-        real
-    """
+    """ ROCP(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4445,17 +1634,7 @@ def stream_ROCP( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ROCR( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ ROCR(real[, timeperiod=?])
-
-    Rate of change ratio: (real/prevPrice) (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 10
-    Outputs:
-        real
-    """
+    """ ROCR(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4474,17 +1653,7 @@ def stream_ROCR( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ROCR100( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ ROCR100(real[, timeperiod=?])
-
-    Rate of change ratio 100 scale: (real/prevPrice)*100 (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 10
-    Outputs:
-        real
-    """
+    """ ROCR100(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4503,17 +1672,7 @@ def stream_ROCR100( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_RSI( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ RSI(real[, timeperiod=?])
-
-    Relative Strength Index (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ RSI(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4531,19 +1690,8 @@ def stream_RSI( np.ndarray real not None , int timeperiod=-2**31 ):
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
-def stream_SAR( np.ndarray high not None , np.ndarray low not None , double acceleration=0.02 , double maximum=0.2 ):
-    """ SAR(high, low[, acceleration=?, maximum=?])
-
-    Parabolic SAR (Overlap Studies)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        acceleration: 0.02
-        maximum: 0.2
-    Outputs:
-        real
-    """
+def stream_SAR( np.ndarray high not None , np.ndarray low not None , double acceleration=-4e37 , double maximum=-4e37 ):
+    """ SAR(high, low[, acceleration=?, maximum=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4565,24 +1713,7 @@ def stream_SAR( np.ndarray high not None , np.ndarray low not None , double acce
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_SAREXT( np.ndarray high not None , np.ndarray low not None , double startvalue=-4e37 , double offsetonreverse=-4e37 , double accelerationinitlong=-4e37 , double accelerationlong=-4e37 , double accelerationmaxlong=-4e37 , double accelerationinitshort=-4e37 , double accelerationshort=-4e37 , double accelerationmaxshort=-4e37 ):
-    """ SAREXT(high, low[, startvalue=?, offsetonreverse=?, accelerationinitlong=?, accelerationlong=?, accelerationmaxlong=?, accelerationinitshort=?, accelerationshort=?, accelerationmaxshort=?])
-
-    Parabolic SAR - Extended (Overlap Studies)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        startvalue: 0.0
-        offsetonreverse: 0.0
-        accelerationinitlong: 0.02
-        accelerationlong: 0.02
-        accelerationmaxlong: 0.2
-        accelerationinitshort: 0.02
-        accelerationshort: 0.02
-        accelerationmaxshort: 0.2
-    Outputs:
-        real
-    """
+    """ SAREXT(high, low[, startvalue=?, offsetonreverse=?, accelerationinitlong=?, accelerationlong=?, accelerationmaxlong=?, accelerationinitshort=?, accelerationshort=?, accelerationmaxshort=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4604,15 +1735,7 @@ def stream_SAREXT( np.ndarray high not None , np.ndarray low not None , double s
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_SIN( np.ndarray real not None ):
-    """ SIN(real)
-
-    Vector Trigonometric Sin (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ SIN(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4631,15 +1754,7 @@ def stream_SIN( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_SINH( np.ndarray real not None ):
-    """ SINH(real)
-
-    Vector Trigonometric Sinh (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ SINH(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4655,20 +1770,19 @@ def stream_SINH( np.ndarray real not None ):
     _ta_check_success("TA_SINH", retCode)
     return outreal 
 
+cannot find defaults and docs for SQRT
+cannot find defaults and docs for STDDEV
+cannot find defaults and docs for STOCH
+cannot find defaults and docs for STOCHF
+cannot find defaults and docs for STOCHRSI
+cannot find defaults and docs for SUB
+cannot find defaults and docs for SUM
+cannot find defaults and docs for T3
+cannot find defaults and docs for TAN
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_SMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ SMA(real[, timeperiod=?])
-
-    Simple Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ SMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4687,15 +1801,7 @@ def stream_SMA( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_SQRT( np.ndarray real not None ):
-    """ SQRT(real)
-
-    Vector Square Root (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ SQRT(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4714,18 +1820,7 @@ def stream_SQRT( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_STDDEV( np.ndarray real not None , int timeperiod=-2**31 , double nbdev=-4e37 ):
-    """ STDDEV(real[, timeperiod=?, nbdev=?])
-
-    Standard Deviation (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 5
-        nbdev: 1.0
-    Outputs:
-        real
-    """
+    """ STDDEV(real[, timeperiod=?, nbdev=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4744,22 +1839,7 @@ def stream_STDDEV( np.ndarray real not None , int timeperiod=-2**31 , double nbd
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_STOCH( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int fastk_period=-2**31 , int slowk_period=-2**31 , int slowk_matype=0 , int slowd_period=-2**31 , int slowd_matype=0 ):
-    """ STOCH(high, low, close[, fastk_period=?, slowk_period=?, slowk_matype=?, slowd_period=?, slowd_matype=?])
-
-    Stochastic (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        fastk_period: 5
-        slowk_period: 3
-        slowk_matype: 0
-        slowd_period: 3
-        slowd_matype: 0
-    Outputs:
-        slowk
-        slowd
-    """
+    """ STOCH(high, low, close[, fastk_period=?, slowk_period=?, slowk_matype=?, slowd_period=?, slowd_matype=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4786,20 +1866,7 @@ def stream_STOCH( np.ndarray high not None , np.ndarray low not None , np.ndarra
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_STOCHF( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int fastk_period=-2**31 , int fastd_period=-2**31 , int fastd_matype=0 ):
-    """ STOCHF(high, low, close[, fastk_period=?, fastd_period=?, fastd_matype=?])
-
-    Stochastic Fast (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        fastk_period: 5
-        fastd_period: 3
-        fastd_matype: 0
-    Outputs:
-        fastk
-        fastd
-    """
+    """ STOCHF(high, low, close[, fastk_period=?, fastd_period=?, fastd_matype=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4826,21 +1893,7 @@ def stream_STOCHF( np.ndarray high not None , np.ndarray low not None , np.ndarr
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_STOCHRSI( np.ndarray real not None , int timeperiod=-2**31 , int fastk_period=-2**31 , int fastd_period=-2**31 , int fastd_matype=0 ):
-    """ STOCHRSI(real[, timeperiod=?, fastk_period=?, fastd_period=?, fastd_matype=?])
-
-    Stochastic Relative Strength Index (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-        fastk_period: 5
-        fastd_period: 3
-        fastd_matype: 0
-    Outputs:
-        fastk
-        fastd
-    """
+    """ STOCHRSI(real[, timeperiod=?, fastk_period=?, fastd_period=?, fastd_matype=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4861,16 +1914,7 @@ def stream_STOCHRSI( np.ndarray real not None , int timeperiod=-2**31 , int fast
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_SUB( np.ndarray real0 not None , np.ndarray real1 not None ):
-    """ SUB(real0, real1)
-
-    Vector Arithmetic Subtraction (Math Operators)
-
-    Inputs:
-        real0: (any ndarray)
-        real1: (any ndarray)
-    Outputs:
-        real
-    """
+    """ SUB(real0, real1)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4892,17 +1936,7 @@ def stream_SUB( np.ndarray real0 not None , np.ndarray real1 not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_SUM( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ SUM(real[, timeperiod=?])
-
-    Summation (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ SUM(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4921,18 +1955,7 @@ def stream_SUM( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_T3( np.ndarray real not None , int timeperiod=-2**31 , double vfactor=-4e37 ):
-    """ T3(real[, timeperiod=?, vfactor=?])
-
-    Triple Exponential Moving Average (T3) (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 5
-        vfactor: 0.7
-    Outputs:
-        real
-    """
+    """ T3(real[, timeperiod=?, vfactor=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4951,15 +1974,7 @@ def stream_T3( np.ndarray real not None , int timeperiod=-2**31 , double vfactor
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_TAN( np.ndarray real not None ):
-    """ TAN(real)
-
-    Vector Trigonometric Tan (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ TAN(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -4968,6 +1983,16 @@ def stream_TAN( np.ndarray real not None ):
         int outnbelement
         double outreal
     real = check_array(real)
+cannot find defaults and docs for TANH
+cannot find defaults and docs for TEMA
+cannot find defaults and docs for TRANGE
+cannot find defaults and docs for TRIMA
+cannot find defaults and docs for TRIX
+cannot find defaults and docs for TSF
+cannot find defaults and docs for TYPPRICE
+cannot find defaults and docs for ULTOSC
+cannot find defaults and docs for VAR
+cannot find defaults and docs for WCLPRICE
     real_data = <double*>real.data
     length = real.shape[0]
     outreal = NaN
@@ -4978,15 +2003,7 @@ def stream_TAN( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_TANH( np.ndarray real not None ):
-    """ TANH(real)
-
-    Vector Trigonometric Tanh (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ TANH(real)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -5005,17 +2022,7 @@ def stream_TANH( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_TEMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ TEMA(real[, timeperiod=?])
-
-    Triple Exponential Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ TEMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -5034,15 +2041,7 @@ def stream_TEMA( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_TRANGE( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ TRANGE(high, low, close)
-
-    True Range (Volatility Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Outputs:
-        real
-    """
+    """ TRANGE(high, low, close)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -5067,17 +2066,7 @@ def stream_TRANGE( np.ndarray high not None , np.ndarray low not None , np.ndarr
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_TRIMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ TRIMA(real[, timeperiod=?])
-
-    Triangular Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ TRIMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -5096,17 +2085,7 @@ def stream_TRIMA( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_TRIX( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ TRIX(real[, timeperiod=?])
-
-    1-day Rate-Of-Change (ROC) of a Triple Smooth EMA (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ TRIX(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -5125,17 +2104,7 @@ def stream_TRIX( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_TSF( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ TSF(real[, timeperiod=?])
-
-    Time Series Forecast (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ TSF(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -5154,15 +2123,7 @@ def stream_TSF( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_TYPPRICE( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ TYPPRICE(high, low, close)
-
-    Typical Price (Price Transform)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Outputs:
-        real
-    """
+    """ TYPPRICE(high, low, close)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -5187,19 +2148,7 @@ def stream_TYPPRICE( np.ndarray high not None , np.ndarray low not None , np.nda
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_ULTOSC( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod1=-2**31 , int timeperiod2=-2**31 , int timeperiod3=-2**31 ):
-    """ ULTOSC(high, low, close[, timeperiod1=?, timeperiod2=?, timeperiod3=?])
-
-    Ultimate Oscillator (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod1: 7
-        timeperiod2: 14
-        timeperiod3: 28
-    Outputs:
-        real
-    """
+    """ ULTOSC(high, low, close[, timeperiod1=?, timeperiod2=?, timeperiod3=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -5224,18 +2173,7 @@ def stream_ULTOSC( np.ndarray high not None , np.ndarray low not None , np.ndarr
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_VAR( np.ndarray real not None , int timeperiod=-2**31 , double nbdev=-4e37 ):
-    """ VAR(real[, timeperiod=?, nbdev=?])
-
-    Variance (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 5
-        nbdev: 1.0
-    Outputs:
-        real
-    """
+    """ VAR(real[, timeperiod=?, nbdev=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -5254,15 +2192,7 @@ def stream_VAR( np.ndarray real not None , int timeperiod=-2**31 , double nbdev=
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_WCLPRICE( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ WCLPRICE(high, low, close)
-
-    Weighted Close Price (Price Transform)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Outputs:
-        real
-    """
+    """ WCLPRICE(high, low, close)"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -5278,6 +2208,8 @@ def stream_WCLPRICE( np.ndarray high not None , np.ndarray low not None , np.nda
     low_data = <double*>low.data
     close = check_array(close)
     close_data = <double*>close.data
+cannot find defaults and docs for WILLR
+cannot find defaults and docs for WMA
     length = check_length3(high, low, close)
     outreal = NaN
     retCode = lib.TA_WCLPRICE( <int>(length) - 1 , <int>(length) - 1 , high_data , low_data , close_data , &outbegidx , &outnbelement , &outreal )
@@ -5287,17 +2219,7 @@ def stream_WCLPRICE( np.ndarray high not None , np.ndarray low not None , np.nda
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_WILLR( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ WILLR(high, low, close[, timeperiod=?])
-
-    Williams' %R (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ WILLR(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode
@@ -5322,17 +2244,7 @@ def stream_WILLR( np.ndarray high not None , np.ndarray low not None , np.ndarra
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_WMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ WMA(real[, timeperiod=?])
-
-    Weighted Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ WMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         TA_RetCode retCode

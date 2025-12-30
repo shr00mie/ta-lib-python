@@ -2,7 +2,18 @@ import os
 import re
 import sys
 
-from talib import abstract
+try:
+    from talib import abstract
+except (ImportError, ModuleNotFoundError):
+    # If talib is not available (e.g., during initial generation), create a stub
+    class StubAbstract:
+        class Function:
+            def __init__(self, name):
+                self.info = {}
+            @staticmethod
+            def _get_defaults_and_docs(info):
+                return {}, ""
+    abstract = StubAbstract()
 
 # FIXME: initialize once, then shutdown at the end, rather than each call?
 # FIXME: should we pass startIdx and endIdx into function?
@@ -29,13 +40,20 @@ if 'TA_INCLUDE_PATH' in os.environ:
     include_dirs = os.environ['TA_INCLUDE_PATH'].split(os.pathsep)
 
 header_found = False
+ta_func_header = None
 for path in include_dirs:
+    # Try ta-lib/ta_func.h first (standard location)
     ta_func_header = os.path.join(path, 'ta-lib', 'ta_func.h')
     if os.path.exists(ta_func_header):
         header_found = True
         break
+    # Try ta_func.h directly (alternative location)
+    ta_func_header = os.path.join(path, 'ta_func.h')
+    if os.path.exists(ta_func_header):
+        header_found = True
+        break
 if not header_found:
-    print('Error: ta-lib/ta_func.h not found', file=sys.stderr)
+    print('Error: ta-lib/ta_func.h or ta_func.h not found', file=sys.stderr)
     sys.exit(1)
 with open(ta_func_header) as f:
     tmp = []

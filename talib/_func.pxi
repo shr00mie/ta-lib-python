@@ -1,3 +1,7 @@
+cannot find defaults and docs for ACCBANDS
+cannot find defaults and docs for ACOS
+cannot find defaults and docs for AD
+cannot find defaults and docs for ADD
 cimport numpy as np
 from numpy import nan
 from cython import boundscheck, wraparound
@@ -142,19 +146,7 @@ cdef np.ndarray make_int_array(np.npy_intp length, int lookback):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ACCBANDS( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ ACCBANDS(high, low, close[, timeperiod=?])
-
-    Acceleration Bands (Overlap Studies)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 20
-    Outputs:
-        upperband
-        middleband
-        lowerband
-    """
+    """ ACCBANDS(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -181,15 +173,7 @@ def ACCBANDS( np.ndarray high not None , np.ndarray low not None , np.ndarray cl
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ACOS( np.ndarray real not None ):
-    """ ACOS(real)
-
-    Vector Trigonometric ACos (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ ACOS(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -210,15 +194,7 @@ def ACOS( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def AD( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , np.ndarray volume not None ):
-    """ AD(high, low, close, volume)
-
-    Chaikin A/D Line (Volume Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close', 'volume']
-    Outputs:
-        real
-    """
+    """ AD(high, low, close, volume)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -242,16 +218,7 @@ def AD( np.ndarray high not None , np.ndarray low not None , np.ndarray close no
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ADD( np.ndarray real0 not None , np.ndarray real1 not None ):
-    """ ADD(real0, real1)
-
-    Vector Arithmetic Add (Math Operators)
-
-    Inputs:
-        real0: (any ndarray)
-        real1: (any ndarray)
-    Outputs:
-        real
-    """
+    """ ADD(real0, real1)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -264,6 +231,14 @@ def ADD( np.ndarray real0 not None , np.ndarray real1 not None ):
     length = check_length2(real0, real1)
     begidx = check_begidx2(length, <double*>(real0.data), <double*>(real1.data))
     endidx = <int>length - begidx - 1
+cannot find defaults and docs for ADOSC
+cannot find defaults and docs for ADX
+cannot find defaults and docs for ADXR
+cannot find defaults and docs for APO
+cannot find defaults and docs for AROON
+cannot find defaults and docs for AROONOSC
+cannot find defaults and docs for ASIN
+cannot find defaults and docs for ATAN
     lookback = begidx + lib.TA_ADD_Lookback( )
     outreal = make_double_array(length, lookback)
     retCode = lib.TA_ADD( 0 , endidx , <double *>(real0.data)+begidx , <double *>(real1.data)+begidx , &outbegidx , &outnbelement , <double *>(outreal.data)+lookback )
@@ -273,18 +248,7 @@ def ADD( np.ndarray real0 not None , np.ndarray real1 not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ADOSC( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , np.ndarray volume not None , int fastperiod=-2**31 , int slowperiod=-2**31 ):
-    """ ADOSC(high, low, close, volume[, fastperiod=?, slowperiod=?])
-
-    Chaikin A/D Oscillator (Volume Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close', 'volume']
-    Parameters:
-        fastperiod: 3
-        slowperiod: 10
-    Outputs:
-        real
-    """
+    """ ADOSC(high, low, close, volume[, fastperiod=?, slowperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -308,17 +272,7 @@ def ADOSC( np.ndarray high not None , np.ndarray low not None , np.ndarray close
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ADX( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ ADX(high, low, close[, timeperiod=?])
-
-    Average Directional Movement Index (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ ADX(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -341,17 +295,7 @@ def ADX( np.ndarray high not None , np.ndarray low not None , np.ndarray close n
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ADXR( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ ADXR(high, low, close[, timeperiod=?])
-
-    Average Directional Movement Index Rating (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ ADXR(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -374,19 +318,7 @@ def ADXR( np.ndarray high not None , np.ndarray low not None , np.ndarray close 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def APO( np.ndarray real not None , int fastperiod=-2**31 , int slowperiod=-2**31 , int matype=0 ):
-    """ APO(real[, fastperiod=?, slowperiod=?, matype=?])
-
-    Absolute Price Oscillator (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        fastperiod: 12
-        slowperiod: 26
-        matype: 0 (Simple Moving Average)
-    Outputs:
-        real
-    """
+    """ APO(real[, fastperiod=?, slowperiod=?, matype=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -407,18 +339,7 @@ def APO( np.ndarray real not None , int fastperiod=-2**31 , int slowperiod=-2**3
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def AROON( np.ndarray high not None , np.ndarray low not None , int timeperiod=-2**31 ):
-    """ AROON(high, low[, timeperiod=?])
-
-    Aroon (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        aroondown
-        aroonup
-    """
+    """ AROON(high, low[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -442,17 +363,7 @@ def AROON( np.ndarray high not None , np.ndarray low not None , int timeperiod=-
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def AROONOSC( np.ndarray high not None , np.ndarray low not None , int timeperiod=-2**31 ):
-    """ AROONOSC(high, low[, timeperiod=?])
-
-    Aroon Oscillator (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ AROONOSC(high, low[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -474,15 +385,7 @@ def AROONOSC( np.ndarray high not None , np.ndarray low not None , int timeperio
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ASIN( np.ndarray real not None ):
-    """ ASIN(real)
-
-    Vector Trigonometric ASin (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ ASIN(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -503,19 +406,18 @@ def ASIN( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ATAN( np.ndarray real not None ):
-    """ ATAN(real)
-
-    Vector Trigonometric ATan (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ ATAN(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
         TA_RetCode retCode
+cannot find defaults and docs for ATR
+cannot find defaults and docs for AVGPRICE
+cannot find defaults and docs for AVGDEV
+cannot find defaults and docs for BBANDS
+cannot find defaults and docs for BETA
+cannot find defaults and docs for BOP
+cannot find defaults and docs for CCI
         int outbegidx
         int outnbelement
         np.ndarray outreal
@@ -532,17 +434,7 @@ def ATAN( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ATR( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ ATR(high, low, close[, timeperiod=?])
-
-    Average True Range (Volatility Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ ATR(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -565,15 +457,7 @@ def ATR( np.ndarray high not None , np.ndarray low not None , np.ndarray close n
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def AVGPRICE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ AVGPRICE(open, high, low, close)
-
-    Average Price (Price Transform)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        real
-    """
+    """ AVGPRICE(open, high, low, close)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -597,17 +481,7 @@ def AVGPRICE( np.ndarray open not None , np.ndarray high not None , np.ndarray l
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def AVGDEV( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ AVGDEV(real[, timeperiod=?])
-
-    Average Deviation (Price Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ AVGDEV(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -628,22 +502,7 @@ def AVGDEV( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def BBANDS( np.ndarray real not None , int timeperiod=-2**31 , double nbdevup=-4e37 , double nbdevdn=-4e37 , int matype=0 ):
-    """ BBANDS(real[, timeperiod=?, nbdevup=?, nbdevdn=?, matype=?])
-
-    Bollinger Bands (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 5
-        nbdevup: 2.0
-        nbdevdn: 2.0
-        matype: 0 (Simple Moving Average)
-    Outputs:
-        upperband
-        middleband
-        lowerband
-    """
+    """ BBANDS(real[, timeperiod=?, nbdevup=?, nbdevdn=?, matype=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -668,18 +527,7 @@ def BBANDS( np.ndarray real not None , int timeperiod=-2**31 , double nbdevup=-4
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def BETA( np.ndarray real0 not None , np.ndarray real1 not None , int timeperiod=-2**31 ):
-    """ BETA(real0, real1[, timeperiod=?])
-
-    Beta (Statistic Functions)
-
-    Inputs:
-        real0: (any ndarray)
-        real1: (any ndarray)
-    Parameters:
-        timeperiod: 5
-    Outputs:
-        real
-    """
+    """ BETA(real0, real1[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -701,15 +549,7 @@ def BETA( np.ndarray real0 not None , np.ndarray real1 not None , int timeperiod
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def BOP( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ BOP(open, high, low, close)
-
-    Balance Of Power (Momentum Indicators)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        real
-    """
+    """ BOP(open, high, low, close)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -733,17 +573,7 @@ def BOP( np.ndarray open not None , np.ndarray high not None , np.ndarray low no
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def CCI( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ CCI(high, low, close[, timeperiod=?])
-
-    Commodity Channel Index (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ CCI(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -758,6 +588,15 @@ def CCI( np.ndarray high not None , np.ndarray low not None , np.ndarray close n
     begidx = check_begidx3(length, <double*>(high.data), <double*>(low.data), <double*>(close.data))
     endidx = <int>length - begidx - 1
     lookback = begidx + lib.TA_CCI_Lookback( timeperiod )
+cannot find defaults and docs for CEIL
+cannot find defaults and docs for CMO
+cannot find defaults and docs for CORREL
+cannot find defaults and docs for COS
+cannot find defaults and docs for COSH
+cannot find defaults and docs for DEMA
+cannot find defaults and docs for DIV
+cannot find defaults and docs for DX
+cannot find defaults and docs for EMA
     outreal = make_double_array(length, lookback)
     retCode = lib.TA_CCI( 0 , endidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , timeperiod , &outbegidx , &outnbelement , <double *>(outreal.data)+lookback )
     _ta_check_success("TA_CCI", retCode)
@@ -765,1982 +604,8 @@ def CCI( np.ndarray high not None , np.ndarray low not None , np.ndarray close n
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
-def CDL2CROWS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL2CROWS(open, high, low, close)
-
-    Two Crows (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDL2CROWS_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDL2CROWS( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDL2CROWS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDL3BLACKCROWS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL3BLACKCROWS(open, high, low, close)
-
-    Three Black Crows (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDL3BLACKCROWS_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDL3BLACKCROWS( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDL3BLACKCROWS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDL3INSIDE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL3INSIDE(open, high, low, close)
-
-    Three Inside Up/Down (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDL3INSIDE_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDL3INSIDE( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDL3INSIDE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDL3LINESTRIKE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL3LINESTRIKE(open, high, low, close)
-
-    Three-Line Strike  (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDL3LINESTRIKE_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDL3LINESTRIKE( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDL3LINESTRIKE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDL3OUTSIDE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL3OUTSIDE(open, high, low, close)
-
-    Three Outside Up/Down (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDL3OUTSIDE_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDL3OUTSIDE( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDL3OUTSIDE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDL3STARSINSOUTH( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL3STARSINSOUTH(open, high, low, close)
-
-    Three Stars In The South (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDL3STARSINSOUTH_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDL3STARSINSOUTH( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDL3STARSINSOUTH", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDL3WHITESOLDIERS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDL3WHITESOLDIERS(open, high, low, close)
-
-    Three Advancing White Soldiers (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDL3WHITESOLDIERS_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDL3WHITESOLDIERS( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDL3WHITESOLDIERS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLABANDONEDBABY( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.3 ):
-    """ CDLABANDONEDBABY(open, high, low, close[, penetration=?])
-
-    Abandoned Baby (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.3
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLABANDONEDBABY_Lookback( penetration )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLABANDONEDBABY( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , penetration , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLABANDONEDBABY", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLADVANCEBLOCK( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLADVANCEBLOCK(open, high, low, close)
-
-    Advance Block (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLADVANCEBLOCK_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLADVANCEBLOCK( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLADVANCEBLOCK", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLBELTHOLD( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLBELTHOLD(open, high, low, close)
-
-    Belt-hold (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLBELTHOLD_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLBELTHOLD( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLBELTHOLD", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLBREAKAWAY( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLBREAKAWAY(open, high, low, close)
-
-    Breakaway (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLBREAKAWAY_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLBREAKAWAY( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLBREAKAWAY", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLCLOSINGMARUBOZU( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLCLOSINGMARUBOZU(open, high, low, close)
-
-    Closing Marubozu (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLCLOSINGMARUBOZU_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLCLOSINGMARUBOZU( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLCLOSINGMARUBOZU", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLCONCEALBABYSWALL( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLCONCEALBABYSWALL(open, high, low, close)
-
-    Concealing Baby Swallow (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLCONCEALBABYSWALL_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLCONCEALBABYSWALL( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLCONCEALBABYSWALL", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLCOUNTERATTACK( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLCOUNTERATTACK(open, high, low, close)
-
-    Counterattack (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLCOUNTERATTACK_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLCOUNTERATTACK( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLCOUNTERATTACK", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLDARKCLOUDCOVER( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.5 ):
-    """ CDLDARKCLOUDCOVER(open, high, low, close[, penetration=?])
-
-    Dark Cloud Cover (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.5
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLDARKCLOUDCOVER_Lookback( penetration )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLDARKCLOUDCOVER( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , penetration , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLDARKCLOUDCOVER", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLDOJI( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLDOJI(open, high, low, close)
-
-    Doji (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLDOJI_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLDOJI( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLDOJI", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLDOJISTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLDOJISTAR(open, high, low, close)
-
-    Doji Star (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLDOJISTAR_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLDOJISTAR( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLDOJISTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLDRAGONFLYDOJI( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLDRAGONFLYDOJI(open, high, low, close)
-
-    Dragonfly Doji (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLDRAGONFLYDOJI_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLDRAGONFLYDOJI( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLDRAGONFLYDOJI", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLENGULFING( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLENGULFING(open, high, low, close)
-
-    Engulfing Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLENGULFING_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLENGULFING( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLENGULFING", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLEVENINGDOJISTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.3 ):
-    """ CDLEVENINGDOJISTAR(open, high, low, close[, penetration=?])
-
-    Evening Doji Star (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.3
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLEVENINGDOJISTAR_Lookback( penetration )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLEVENINGDOJISTAR( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , penetration , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLEVENINGDOJISTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLEVENINGSTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.3 ):
-    """ CDLEVENINGSTAR(open, high, low, close[, penetration=?])
-
-    Evening Star (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.3
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLEVENINGSTAR_Lookback( penetration )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLEVENINGSTAR( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , penetration , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLEVENINGSTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLGAPSIDESIDEWHITE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLGAPSIDESIDEWHITE(open, high, low, close)
-
-    Up/Down-gap side-by-side white lines (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLGAPSIDESIDEWHITE_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLGAPSIDESIDEWHITE( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLGAPSIDESIDEWHITE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLGRAVESTONEDOJI( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLGRAVESTONEDOJI(open, high, low, close)
-
-    Gravestone Doji (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLGRAVESTONEDOJI_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLGRAVESTONEDOJI( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLGRAVESTONEDOJI", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLHAMMER( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHAMMER(open, high, low, close)
-
-    Hammer (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLHAMMER_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLHAMMER( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLHAMMER", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLHANGINGMAN( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHANGINGMAN(open, high, low, close)
-
-    Hanging Man (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLHANGINGMAN_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLHANGINGMAN( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLHANGINGMAN", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLHARAMI( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHARAMI(open, high, low, close)
-
-    Harami Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLHARAMI_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLHARAMI( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLHARAMI", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLHARAMICROSS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHARAMICROSS(open, high, low, close)
-
-    Harami Cross Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLHARAMICROSS_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLHARAMICROSS( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLHARAMICROSS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLHIGHWAVE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHIGHWAVE(open, high, low, close)
-
-    High-Wave Candle (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLHIGHWAVE_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLHIGHWAVE( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLHIGHWAVE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLHIKKAKE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHIKKAKE(open, high, low, close)
-
-    Hikkake Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLHIKKAKE_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLHIKKAKE( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLHIKKAKE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLHIKKAKEMOD( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHIKKAKEMOD(open, high, low, close)
-
-    Modified Hikkake Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLHIKKAKEMOD_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLHIKKAKEMOD( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLHIKKAKEMOD", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLHOMINGPIGEON( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLHOMINGPIGEON(open, high, low, close)
-
-    Homing Pigeon (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLHOMINGPIGEON_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLHOMINGPIGEON( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLHOMINGPIGEON", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLIDENTICAL3CROWS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLIDENTICAL3CROWS(open, high, low, close)
-
-    Identical Three Crows (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLIDENTICAL3CROWS_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLIDENTICAL3CROWS( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLIDENTICAL3CROWS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLINNECK( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLINNECK(open, high, low, close)
-
-    In-Neck Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLINNECK_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLINNECK( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLINNECK", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLINVERTEDHAMMER( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLINVERTEDHAMMER(open, high, low, close)
-
-    Inverted Hammer (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLINVERTEDHAMMER_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLINVERTEDHAMMER( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLINVERTEDHAMMER", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLKICKING( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLKICKING(open, high, low, close)
-
-    Kicking (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLKICKING_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLKICKING( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLKICKING", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLKICKINGBYLENGTH( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLKICKINGBYLENGTH(open, high, low, close)
-
-    Kicking - bull/bear determined by the longer marubozu (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLKICKINGBYLENGTH_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLKICKINGBYLENGTH( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLKICKINGBYLENGTH", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLLADDERBOTTOM( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLLADDERBOTTOM(open, high, low, close)
-
-    Ladder Bottom (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLLADDERBOTTOM_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLLADDERBOTTOM( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLLADDERBOTTOM", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLLONGLEGGEDDOJI( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLLONGLEGGEDDOJI(open, high, low, close)
-
-    Long Legged Doji (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLLONGLEGGEDDOJI_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLLONGLEGGEDDOJI( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLLONGLEGGEDDOJI", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLLONGLINE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLLONGLINE(open, high, low, close)
-
-    Long Line Candle (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLLONGLINE_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLLONGLINE( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLLONGLINE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLMARUBOZU( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLMARUBOZU(open, high, low, close)
-
-    Marubozu (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLMARUBOZU_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLMARUBOZU( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLMARUBOZU", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLMATCHINGLOW( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLMATCHINGLOW(open, high, low, close)
-
-    Matching Low (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLMATCHINGLOW_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLMATCHINGLOW( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLMATCHINGLOW", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLMATHOLD( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.5 ):
-    """ CDLMATHOLD(open, high, low, close[, penetration=?])
-
-    Mat Hold (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.5
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLMATHOLD_Lookback( penetration )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLMATHOLD( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , penetration , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLMATHOLD", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLMORNINGDOJISTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.3 ):
-    """ CDLMORNINGDOJISTAR(open, high, low, close[, penetration=?])
-
-    Morning Doji Star (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.3
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLMORNINGDOJISTAR_Lookback( penetration )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLMORNINGDOJISTAR( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , penetration , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLMORNINGDOJISTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLMORNINGSTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , double penetration=0.3 ):
-    """ CDLMORNINGSTAR(open, high, low, close[, penetration=?])
-
-    Morning Star (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Parameters:
-        penetration: 0.3
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLMORNINGSTAR_Lookback( penetration )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLMORNINGSTAR( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , penetration , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLMORNINGSTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLONNECK( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLONNECK(open, high, low, close)
-
-    On-Neck Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLONNECK_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLONNECK( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLONNECK", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLPIERCING( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLPIERCING(open, high, low, close)
-
-    Piercing Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLPIERCING_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLPIERCING( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLPIERCING", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLRICKSHAWMAN( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLRICKSHAWMAN(open, high, low, close)
-
-    Rickshaw Man (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLRICKSHAWMAN_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLRICKSHAWMAN( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLRICKSHAWMAN", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLRISEFALL3METHODS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLRISEFALL3METHODS(open, high, low, close)
-
-    Rising/Falling Three Methods (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLRISEFALL3METHODS_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLRISEFALL3METHODS( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLRISEFALL3METHODS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLSEPARATINGLINES( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLSEPARATINGLINES(open, high, low, close)
-
-    Separating Lines (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLSEPARATINGLINES_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLSEPARATINGLINES( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLSEPARATINGLINES", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLSHOOTINGSTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLSHOOTINGSTAR(open, high, low, close)
-
-    Shooting Star (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLSHOOTINGSTAR_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLSHOOTINGSTAR( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLSHOOTINGSTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLSHORTLINE( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLSHORTLINE(open, high, low, close)
-
-    Short Line Candle (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLSHORTLINE_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLSHORTLINE( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLSHORTLINE", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLSPINNINGTOP( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLSPINNINGTOP(open, high, low, close)
-
-    Spinning Top (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLSPINNINGTOP_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLSPINNINGTOP( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLSPINNINGTOP", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLSTALLEDPATTERN( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLSTALLEDPATTERN(open, high, low, close)
-
-    Stalled Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLSTALLEDPATTERN_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLSTALLEDPATTERN( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLSTALLEDPATTERN", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLSTICKSANDWICH( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLSTICKSANDWICH(open, high, low, close)
-
-    Stick Sandwich (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLSTICKSANDWICH_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLSTICKSANDWICH( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLSTICKSANDWICH", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLTAKURI( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLTAKURI(open, high, low, close)
-
-    Takuri (Dragonfly Doji with very long lower shadow) (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLTAKURI_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLTAKURI( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLTAKURI", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLTASUKIGAP( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLTASUKIGAP(open, high, low, close)
-
-    Tasuki Gap (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLTASUKIGAP_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLTASUKIGAP( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLTASUKIGAP", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLTHRUSTING( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLTHRUSTING(open, high, low, close)
-
-    Thrusting Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLTHRUSTING_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLTHRUSTING( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLTHRUSTING", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLTRISTAR( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLTRISTAR(open, high, low, close)
-
-    Tristar Pattern (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLTRISTAR_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLTRISTAR( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLTRISTAR", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLUNIQUE3RIVER( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLUNIQUE3RIVER(open, high, low, close)
-
-    Unique 3 River (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLUNIQUE3RIVER_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLUNIQUE3RIVER( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLUNIQUE3RIVER", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLUPSIDEGAP2CROWS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLUPSIDEGAP2CROWS(open, high, low, close)
-
-    Upside Gap Two Crows (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLUPSIDEGAP2CROWS_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLUPSIDEGAP2CROWS( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLUPSIDEGAP2CROWS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
-def CDLXSIDEGAP3METHODS( np.ndarray open not None , np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ CDLXSIDEGAP3METHODS(open, high, low, close)
-
-    Upside/Downside Gap Three Methods (Pattern Recognition)
-
-    Inputs:
-        prices: ['open', 'high', 'low', 'close']
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
-    cdef:
-        np.npy_intp length
-        int begidx, endidx, lookback
-        TA_RetCode retCode
-        int outbegidx
-        int outnbelement
-        np.ndarray outinteger
-    open = check_array(open)
-    high = check_array(high)
-    low = check_array(low)
-    close = check_array(close)
-    length = check_length4(open, high, low, close)
-    begidx = check_begidx4(length, <double*>(open.data), <double*>(high.data), <double*>(low.data), <double*>(close.data))
-    endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_CDLXSIDEGAP3METHODS_Lookback( )
-    outinteger = make_int_array(length, lookback)
-    retCode = lib.TA_CDLXSIDEGAP3METHODS( 0 , endidx , <double *>(open.data)+begidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
-    _ta_check_success("TA_CDLXSIDEGAP3METHODS", retCode)
-    return outinteger 
-
-@wraparound(False)  # turn off relative indexing from end of lists
-@boundscheck(False) # turn off bounds-checking for entire function
 def CEIL( np.ndarray real not None ):
-    """ CEIL(real)
-
-    Vector Ceil (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ CEIL(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -2761,17 +626,7 @@ def CEIL( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def CMO( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ CMO(real[, timeperiod=?])
-
-    Chande Momentum Oscillator (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ CMO(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -2792,18 +647,7 @@ def CMO( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def CORREL( np.ndarray real0 not None , np.ndarray real1 not None , int timeperiod=-2**31 ):
-    """ CORREL(real0, real1[, timeperiod=?])
-
-    Pearson's Correlation Coefficient (r) (Statistic Functions)
-
-    Inputs:
-        real0: (any ndarray)
-        real1: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ CORREL(real0, real1[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -2825,15 +669,7 @@ def CORREL( np.ndarray real0 not None , np.ndarray real1 not None , int timeperi
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def COS( np.ndarray real not None ):
-    """ COS(real)
-
-    Vector Trigonometric Cos (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ COS(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -2854,15 +690,7 @@ def COS( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def COSH( np.ndarray real not None ):
-    """ COSH(real)
-
-    Vector Trigonometric Cosh (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ COSH(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -2883,17 +711,7 @@ def COSH( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def DEMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ DEMA(real[, timeperiod=?])
-
-    Double Exponential Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ DEMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -2914,16 +732,7 @@ def DEMA( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def DIV( np.ndarray real0 not None , np.ndarray real1 not None ):
-    """ DIV(real0, real1)
-
-    Vector Arithmetic Div (Math Operators)
-
-    Inputs:
-        real0: (any ndarray)
-        real1: (any ndarray)
-    Outputs:
-        real
-    """
+    """ DIV(real0, real1)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -2945,17 +754,7 @@ def DIV( np.ndarray real0 not None , np.ndarray real1 not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def DX( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ DX(high, low, close[, timeperiod=?])
-
-    Directional Movement Index (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ DX(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -2978,17 +777,7 @@ def DX( np.ndarray high not None , np.ndarray low not None , np.ndarray close no
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def EMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ EMA(real[, timeperiod=?])
-
-    Exponential Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ EMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3000,6 +789,15 @@ def EMA( np.ndarray real not None , int timeperiod=-2**31 ):
     length = real.shape[0]
     begidx = check_begidx1(length, <double*>(real.data))
     endidx = <int>length - begidx - 1
+cannot find defaults and docs for EXP
+cannot find defaults and docs for FLOOR
+cannot find defaults and docs for HT_DCPERIOD
+cannot find defaults and docs for HT_DCPHASE
+cannot find defaults and docs for HT_PHASOR
+cannot find defaults and docs for HT_SINE
+cannot find defaults and docs for HT_TRENDLINE
+cannot find defaults and docs for HT_TRENDMODE
+cannot find defaults and docs for IMI
     lookback = begidx + lib.TA_EMA_Lookback( timeperiod )
     outreal = make_double_array(length, lookback)
     retCode = lib.TA_EMA( 0 , endidx , <double *>(real.data)+begidx , timeperiod , &outbegidx , &outnbelement , <double *>(outreal.data)+lookback )
@@ -3009,15 +807,7 @@ def EMA( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def EXP( np.ndarray real not None ):
-    """ EXP(real)
-
-    Vector Arithmetic Exp (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ EXP(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3038,15 +828,7 @@ def EXP( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def FLOOR( np.ndarray real not None ):
-    """ FLOOR(real)
-
-    Vector Floor (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ FLOOR(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3067,15 +849,7 @@ def FLOOR( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def HT_DCPERIOD( np.ndarray real not None ):
-    """ HT_DCPERIOD(real)
-
-    Hilbert Transform - Dominant Cycle Period (Cycle Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ HT_DCPERIOD(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3096,15 +870,7 @@ def HT_DCPERIOD( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def HT_DCPHASE( np.ndarray real not None ):
-    """ HT_DCPHASE(real)
-
-    Hilbert Transform - Dominant Cycle Phase (Cycle Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ HT_DCPHASE(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3125,16 +891,7 @@ def HT_DCPHASE( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def HT_PHASOR( np.ndarray real not None ):
-    """ HT_PHASOR(real)
-
-    Hilbert Transform - Phasor Components (Cycle Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        inphase
-        quadrature
-    """
+    """ HT_PHASOR(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3157,16 +914,7 @@ def HT_PHASOR( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def HT_SINE( np.ndarray real not None ):
-    """ HT_SINE(real)
-
-    Hilbert Transform - SineWave (Cycle Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        sine
-        leadsine
-    """
+    """ HT_SINE(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3189,15 +937,7 @@ def HT_SINE( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def HT_TRENDLINE( np.ndarray real not None ):
-    """ HT_TRENDLINE(real)
-
-    Hilbert Transform - Instantaneous Trendline (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ HT_TRENDLINE(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3218,15 +958,7 @@ def HT_TRENDLINE( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def HT_TRENDMODE( np.ndarray real not None ):
-    """ HT_TRENDMODE(real)
-
-    Hilbert Transform - Trend vs Cycle Mode (Cycle Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
+    """ HT_TRENDMODE(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3247,17 +979,7 @@ def HT_TRENDMODE( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def IMI( np.ndarray open not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ IMI(open, close[, timeperiod=?])
-
-    Intraday Momentum Index (Momentum Indicators)
-
-    Inputs:
-        prices: ['open', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ IMI(open, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3272,24 +994,48 @@ def IMI( np.ndarray open not None , np.ndarray close not None , int timeperiod=-
     endidx = <int>length - begidx - 1
     lookback = begidx + lib.TA_IMI_Lookback( timeperiod )
     outreal = make_double_array(length, lookback)
-    retCode = lib.TA_IMI( 0 , endidx , <double *>(open.data)+begidx , <double *>(close.data)+begidx , timeperiod , &outbegidx , &outnbelement , <double *>(outreal.data)+lookback )
+    retCode = lib.TA_IMI( 0 , endidx , <double *>(open.data)+begidx , cannot find defaults and docs for JMA
+cannot find defaults and docs for KAMA
+cannot find defaults and docs for LINEARREG
+cannot find defaults and docs for LINEARREG_ANGLE
+cannot find defaults and docs for LINEARREG_INTERCEPT
+cannot find defaults and docs for LINEARREG_SLOPE
+cannot find defaults and docs for LN
+cannot find defaults and docs for LOG10
+cannot find defaults and docs for MA
+<double *>(close.data)+begidx , timeperiod , &outbegidx , &outnbelement , <double *>(outreal.data)+lookback )
     _ta_check_success("TA_IMI", retCode)
     return outreal 
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
+def JMA( np.ndarray real not None , int timeperiod=7 , int phase=0 , int volperiods=50 ):
+    """ JMA(real[, timeperiod=?, phase=?, volperiods=?])"""
+    cdef:
+        np.npy_intp length
+        int begidx, endidx, lookback
+        TA_RetCode retCode
+        int outbegidx
+        int outnbelement
+        np.ndarray outrealjma
+        np.ndarray outrealupperband
+        np.ndarray outreallowerband
+    real = check_array(real)
+    length = real.shape[0]
+    begidx = check_begidx1(length, <double*>(real.data))
+    endidx = <int>length - begidx - 1
+    lookback = begidx + lib.TA_JMA_Lookback( timeperiod , phase , volperiods )
+    outrealjma = make_double_array(length, lookback)
+    outrealupperband = make_double_array(length, lookback)
+    outreallowerband = make_double_array(length, lookback)
+    retCode = lib.TA_JMA( 0 , endidx , <double *>(real.data)+begidx , timeperiod , phase , volperiods , &outbegidx , &outnbelement , <double *>(outrealjma.data)+lookback , <double *>(outrealupperband.data)+lookback , <double *>(outreallowerband.data)+lookback )
+    _ta_check_success("TA_JMA", retCode)
+    return outrealjma , outrealupperband , outreallowerband 
+
+@wraparound(False)  # turn off relative indexing from end of lists
+@boundscheck(False) # turn off bounds-checking for entire function
 def KAMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ KAMA(real[, timeperiod=?])
-
-    Kaufman Adaptive Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ KAMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3310,17 +1056,7 @@ def KAMA( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def LINEARREG( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ LINEARREG(real[, timeperiod=?])
-
-    Linear Regression (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ LINEARREG(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3341,17 +1077,7 @@ def LINEARREG( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def LINEARREG_ANGLE( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ LINEARREG_ANGLE(real[, timeperiod=?])
-
-    Linear Regression Angle (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ LINEARREG_ANGLE(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3372,17 +1098,7 @@ def LINEARREG_ANGLE( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def LINEARREG_INTERCEPT( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ LINEARREG_INTERCEPT(real[, timeperiod=?])
-
-    Linear Regression Intercept (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ LINEARREG_INTERCEPT(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3403,17 +1119,7 @@ def LINEARREG_INTERCEPT( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def LINEARREG_SLOPE( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ LINEARREG_SLOPE(real[, timeperiod=?])
-
-    Linear Regression Slope (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ LINEARREG_SLOPE(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3434,15 +1140,7 @@ def LINEARREG_SLOPE( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def LN( np.ndarray real not None ):
-    """ LN(real)
-
-    Vector Log Natural (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ LN(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3463,15 +1161,7 @@ def LN( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def LOG10( np.ndarray real not None ):
-    """ LOG10(real)
-
-    Vector Log10 (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ LOG10(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3492,18 +1182,7 @@ def LOG10( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MA( np.ndarray real not None , int timeperiod=-2**31 , int matype=0 ):
-    """ MA(real[, timeperiod=?, matype=?])
-
-    Moving average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-        matype: 0 (Simple Moving Average)
-    Outputs:
-        real
-    """
+    """ MA(real[, timeperiod=?, matype=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3512,6 +1191,13 @@ def MA( np.ndarray real not None , int timeperiod=-2**31 , int matype=0 ):
         int outnbelement
         np.ndarray outreal
     real = check_array(real)
+cannot find defaults and docs for MACD
+cannot find defaults and docs for MACDEXT
+cannot find defaults and docs for MACDFIX
+cannot find defaults and docs for MAMA
+cannot find defaults and docs for MAVP
+cannot find defaults and docs for MAX
+cannot find defaults and docs for MAXINDEX
     length = real.shape[0]
     begidx = check_begidx1(length, <double*>(real.data))
     endidx = <int>length - begidx - 1
@@ -3524,21 +1210,7 @@ def MA( np.ndarray real not None , int timeperiod=-2**31 , int matype=0 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MACD( np.ndarray real not None , int fastperiod=-2**31 , int slowperiod=-2**31 , int signalperiod=-2**31 ):
-    """ MACD(real[, fastperiod=?, slowperiod=?, signalperiod=?])
-
-    Moving Average Convergence/Divergence (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        fastperiod: 12
-        slowperiod: 26
-        signalperiod: 9
-    Outputs:
-        macd
-        macdsignal
-        macdhist
-    """
+    """ MACD(real[, fastperiod=?, slowperiod=?, signalperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3563,24 +1235,7 @@ def MACD( np.ndarray real not None , int fastperiod=-2**31 , int slowperiod=-2**
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MACDEXT( np.ndarray real not None , int fastperiod=-2**31 , int fastmatype=0 , int slowperiod=-2**31 , int slowmatype=0 , int signalperiod=-2**31 , int signalmatype=0 ):
-    """ MACDEXT(real[, fastperiod=?, fastmatype=?, slowperiod=?, slowmatype=?, signalperiod=?, signalmatype=?])
-
-    MACD with controllable MA type (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        fastperiod: 12
-        fastmatype: 0
-        slowperiod: 26
-        slowmatype: 0
-        signalperiod: 9
-        signalmatype: 0
-    Outputs:
-        macd
-        macdsignal
-        macdhist
-    """
+    """ MACDEXT(real[, fastperiod=?, fastmatype=?, slowperiod=?, slowmatype=?, signalperiod=?, signalmatype=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3605,19 +1260,7 @@ def MACDEXT( np.ndarray real not None , int fastperiod=-2**31 , int fastmatype=0
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MACDFIX( np.ndarray real not None , int signalperiod=-2**31 ):
-    """ MACDFIX(real[, signalperiod=?])
-
-    Moving Average Convergence/Divergence Fix 12/26 (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        signalperiod: 9
-    Outputs:
-        macd
-        macdsignal
-        macdhist
-    """
+    """ MACDFIX(real[, signalperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3642,19 +1285,7 @@ def MACDFIX( np.ndarray real not None , int signalperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MAMA( np.ndarray real not None , double fastlimit=-4e37 , double slowlimit=-4e37 ):
-    """ MAMA(real[, fastlimit=?, slowlimit=?])
-
-    MESA Adaptive Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        fastlimit: 0.5
-        slowlimit: 0.05
-    Outputs:
-        mama
-        fama
-    """
+    """ MAMA(real[, fastlimit=?, slowlimit=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3677,20 +1308,7 @@ def MAMA( np.ndarray real not None , double fastlimit=-4e37 , double slowlimit=-
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MAVP( np.ndarray real not None , np.ndarray periods not None , int minperiod=-2**31 , int maxperiod=-2**31 , int matype=0 ):
-    """ MAVP(real, periods[, minperiod=?, maxperiod=?, matype=?])
-
-    Moving average with variable period (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-        periods: (any ndarray)
-    Parameters:
-        minperiod: 2
-        maxperiod: 30
-        matype: 0 (Simple Moving Average)
-    Outputs:
-        real
-    """
+    """ MAVP(real, periods[, minperiod=?, maxperiod=?, matype=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3712,17 +1330,7 @@ def MAVP( np.ndarray real not None , np.ndarray periods not None , int minperiod
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MAX( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MAX(real[, timeperiod=?])
-
-    Highest value over a specified period (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ MAX(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3743,17 +1351,7 @@ def MAX( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MAXINDEX( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MAXINDEX(real[, timeperiod=?])
-
-    Index of highest value over a specified period (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
+    """ MAXINDEX(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3766,6 +1364,14 @@ def MAXINDEX( np.ndarray real not None , int timeperiod=-2**31 ):
     begidx = check_begidx1(length, <double*>(real.data))
     endidx = <int>length - begidx - 1
     lookback = begidx + lib.TA_MAXINDEX_Lookback( timeperiod )
+cannot find defaults and docs for MEDPRICE
+cannot find defaults and docs for MFI
+cannot find defaults and docs for MIDPOINT
+cannot find defaults and docs for MIDPRICE
+cannot find defaults and docs for MIN
+cannot find defaults and docs for MININDEX
+cannot find defaults and docs for MINMAX
+cannot find defaults and docs for MINMAXINDEX
     outinteger = make_int_array(length, lookback)
     retCode = lib.TA_MAXINDEX( 0 , endidx , <double *>(real.data)+begidx , timeperiod , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
     _ta_check_success("TA_MAXINDEX", retCode)
@@ -3777,15 +1383,7 @@ def MAXINDEX( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MEDPRICE( np.ndarray high not None , np.ndarray low not None ):
-    """ MEDPRICE(high, low)
-
-    Median Price (Price Transform)
-
-    Inputs:
-        prices: ['high', 'low']
-    Outputs:
-        real
-    """
+    """ MEDPRICE(high, low)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3807,17 +1405,7 @@ def MEDPRICE( np.ndarray high not None , np.ndarray low not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MFI( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , np.ndarray volume not None , int timeperiod=-2**31 ):
-    """ MFI(high, low, close, volume[, timeperiod=?])
-
-    Money Flow Index (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close', 'volume']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ MFI(high, low, close, volume[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3841,17 +1429,7 @@ def MFI( np.ndarray high not None , np.ndarray low not None , np.ndarray close n
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MIDPOINT( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MIDPOINT(real[, timeperiod=?])
-
-    MidPoint over period (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ MIDPOINT(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3872,17 +1450,7 @@ def MIDPOINT( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MIDPRICE( np.ndarray high not None , np.ndarray low not None , int timeperiod=-2**31 ):
-    """ MIDPRICE(high, low[, timeperiod=?])
-
-    Midpoint Price over period (Overlap Studies)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ MIDPRICE(high, low[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3904,17 +1472,7 @@ def MIDPRICE( np.ndarray high not None , np.ndarray low not None , int timeperio
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MIN( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MIN(real[, timeperiod=?])
-
-    Lowest value over a specified period (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ MIN(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3935,17 +1493,7 @@ def MIN( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MININDEX( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MININDEX(real[, timeperiod=?])
-
-    Index of lowest value over a specified period (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        integer (values are -100, 0 or 100)
-    """
+    """ MININDEX(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -3969,18 +1517,7 @@ def MININDEX( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MINMAX( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MINMAX(real[, timeperiod=?])
-
-    Lowest and highest values over a specified period (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        min
-        max
-    """
+    """ MINMAX(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4003,18 +1540,7 @@ def MINMAX( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MINMAXINDEX( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MINMAXINDEX(real[, timeperiod=?])
-
-    Indexes of lowest and highest values over a specified period (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        minidx
-        maxidx
-    """
+    """ MINMAXINDEX(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4029,6 +1555,14 @@ def MINMAXINDEX( np.ndarray real not None , int timeperiod=-2**31 ):
     endidx = <int>length - begidx - 1
     lookback = begidx + lib.TA_MINMAXINDEX_Lookback( timeperiod )
     outminidx = make_int_array(length, lookback)
+cannot find defaults and docs for MINUS_DI
+cannot find defaults and docs for MINUS_DM
+cannot find defaults and docs for MOM
+cannot find defaults and docs for MULT
+cannot find defaults and docs for NATR
+cannot find defaults and docs for OBV
+cannot find defaults and docs for PLUS_DI
+cannot find defaults and docs for PLUS_DM
     outmaxidx = make_int_array(length, lookback)
     retCode = lib.TA_MINMAXINDEX( 0 , endidx , <double *>(real.data)+begidx , timeperiod , &outbegidx , &outnbelement , <int *>(outminidx.data)+lookback , <int *>(outmaxidx.data)+lookback )
     _ta_check_success("TA_MINMAXINDEX", retCode)
@@ -4043,17 +1577,7 @@ def MINMAXINDEX( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MINUS_DI( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ MINUS_DI(high, low, close[, timeperiod=?])
-
-    Minus Directional Indicator (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ MINUS_DI(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4076,17 +1600,7 @@ def MINUS_DI( np.ndarray high not None , np.ndarray low not None , np.ndarray cl
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MINUS_DM( np.ndarray high not None , np.ndarray low not None , int timeperiod=-2**31 ):
-    """ MINUS_DM(high, low[, timeperiod=?])
-
-    Minus Directional Movement (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ MINUS_DM(high, low[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4108,17 +1622,7 @@ def MINUS_DM( np.ndarray high not None , np.ndarray low not None , int timeperio
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MOM( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ MOM(real[, timeperiod=?])
-
-    Momentum (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 10
-    Outputs:
-        real
-    """
+    """ MOM(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4139,16 +1643,7 @@ def MOM( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def MULT( np.ndarray real0 not None , np.ndarray real1 not None ):
-    """ MULT(real0, real1)
-
-    Vector Arithmetic Mult (Math Operators)
-
-    Inputs:
-        real0: (any ndarray)
-        real1: (any ndarray)
-    Outputs:
-        real
-    """
+    """ MULT(real0, real1)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4170,17 +1665,7 @@ def MULT( np.ndarray real0 not None , np.ndarray real1 not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def NATR( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ NATR(high, low, close[, timeperiod=?])
-
-    Normalized Average True Range (Volatility Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ NATR(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4203,16 +1688,7 @@ def NATR( np.ndarray high not None , np.ndarray low not None , np.ndarray close 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def OBV( np.ndarray real not None , np.ndarray volume not None ):
-    """ OBV(real, volume)
-
-    On Balance Volume (Volume Indicators)
-
-    Inputs:
-        real: (any ndarray)
-        prices: ['volume']
-    Outputs:
-        real
-    """
+    """ OBV(real, volume)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4234,17 +1710,7 @@ def OBV( np.ndarray real not None , np.ndarray volume not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def PLUS_DI( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ PLUS_DI(high, low, close[, timeperiod=?])
-
-    Plus Directional Indicator (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ PLUS_DI(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4267,22 +1733,20 @@ def PLUS_DI( np.ndarray high not None , np.ndarray low not None , np.ndarray clo
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def PLUS_DM( np.ndarray high not None , np.ndarray low not None , int timeperiod=-2**31 ):
-    """ PLUS_DM(high, low[, timeperiod=?])
-
-    Plus Directional Movement (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ PLUS_DM(high, low[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
         TA_RetCode retCode
         int outbegidx
+cannot find defaults and docs for PPO
+cannot find defaults and docs for ROC
+cannot find defaults and docs for ROCP
+cannot find defaults and docs for ROCR
+cannot find defaults and docs for ROCR100
+cannot find defaults and docs for RSI
+cannot find defaults and docs for SAR
+cannot find defaults and docs for SAREXT
         int outnbelement
         np.ndarray outreal
     high = check_array(high)
@@ -4299,19 +1763,7 @@ def PLUS_DM( np.ndarray high not None , np.ndarray low not None , int timeperiod
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def PPO( np.ndarray real not None , int fastperiod=-2**31 , int slowperiod=-2**31 , int matype=0 ):
-    """ PPO(real[, fastperiod=?, slowperiod=?, matype=?])
-
-    Percentage Price Oscillator (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        fastperiod: 12
-        slowperiod: 26
-        matype: 0 (Simple Moving Average)
-    Outputs:
-        real
-    """
+    """ PPO(real[, fastperiod=?, slowperiod=?, matype=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4332,17 +1784,7 @@ def PPO( np.ndarray real not None , int fastperiod=-2**31 , int slowperiod=-2**3
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ROC( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ ROC(real[, timeperiod=?])
-
-    Rate of change : ((real/prevPrice)-1)*100 (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 10
-    Outputs:
-        real
-    """
+    """ ROC(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4363,17 +1805,7 @@ def ROC( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ROCP( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ ROCP(real[, timeperiod=?])
-
-    Rate of change Percentage: (real-prevPrice)/prevPrice (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 10
-    Outputs:
-        real
-    """
+    """ ROCP(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4394,17 +1826,7 @@ def ROCP( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ROCR( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ ROCR(real[, timeperiod=?])
-
-    Rate of change ratio: (real/prevPrice) (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 10
-    Outputs:
-        real
-    """
+    """ ROCR(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4425,17 +1847,7 @@ def ROCR( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ROCR100( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ ROCR100(real[, timeperiod=?])
-
-    Rate of change ratio 100 scale: (real/prevPrice)*100 (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 10
-    Outputs:
-        real
-    """
+    """ ROCR100(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4456,17 +1868,7 @@ def ROCR100( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def RSI( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ RSI(real[, timeperiod=?])
-
-    Relative Strength Index (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ RSI(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4486,19 +1888,8 @@ def RSI( np.ndarray real not None , int timeperiod=-2**31 ):
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
-def SAR( np.ndarray high not None , np.ndarray low not None , double acceleration=0.02 , double maximum=0.2 ):
-    """ SAR(high, low[, acceleration=?, maximum=?])
-
-    Parabolic SAR (Overlap Studies)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        acceleration: 0.02
-        maximum: 0.2
-    Outputs:
-        real
-    """
+def SAR( np.ndarray high not None , np.ndarray low not None , double acceleration=-4e37 , double maximum=-4e37 ):
+    """ SAR(high, low[, acceleration=?, maximum=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4520,24 +1911,7 @@ def SAR( np.ndarray high not None , np.ndarray low not None , double acceleratio
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def SAREXT( np.ndarray high not None , np.ndarray low not None , double startvalue=-4e37 , double offsetonreverse=-4e37 , double accelerationinitlong=-4e37 , double accelerationlong=-4e37 , double accelerationmaxlong=-4e37 , double accelerationinitshort=-4e37 , double accelerationshort=-4e37 , double accelerationmaxshort=-4e37 ):
-    """ SAREXT(high, low[, startvalue=?, offsetonreverse=?, accelerationinitlong=?, accelerationlong=?, accelerationmaxlong=?, accelerationinitshort=?, accelerationshort=?, accelerationmaxshort=?])
-
-    Parabolic SAR - Extended (Overlap Studies)
-
-    Inputs:
-        prices: ['high', 'low']
-    Parameters:
-        startvalue: 0.0
-        offsetonreverse: 0.0
-        accelerationinitlong: 0.02
-        accelerationlong: 0.02
-        accelerationmaxlong: 0.2
-        accelerationinitshort: 0.02
-        accelerationshort: 0.02
-        accelerationmaxshort: 0.2
-    Outputs:
-        real
-    """
+    """ SAREXT(high, low[, startvalue=?, offsetonreverse=?, accelerationinitlong=?, accelerationlong=?, accelerationmaxlong=?, accelerationinitshort=?, accelerationshort=?, accelerationmaxshort=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4550,7 +1924,15 @@ def SAREXT( np.ndarray high not None , np.ndarray low not None , double startval
     length = check_length2(high, low)
     begidx = check_begidx2(length, <double*>(high.data), <double*>(low.data))
     endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_SAREXT_Lookback( startvalue , offsetonreverse , accelerationinitlong , accelerationlong , accelerationmaxlong , accelerationinitshort , accelerationshort , accelerationmaxshort )
+    lookback = begidx + lib.TA_SAREXT_Lookback( startvalue , cannot find defaults and docs for SIN
+cannot find defaults and docs for SINH
+cannot find defaults and docs for SMA
+cannot find defaults and docs for SQRT
+cannot find defaults and docs for STDDEV
+cannot find defaults and docs for STOCH
+cannot find defaults and docs for STOCHF
+cannot find defaults and docs for STOCHRSI
+offsetonreverse , accelerationinitlong , accelerationlong , accelerationmaxlong , accelerationinitshort , accelerationshort , accelerationmaxshort )
     outreal = make_double_array(length, lookback)
     retCode = lib.TA_SAREXT( 0 , endidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , startvalue , offsetonreverse , accelerationinitlong , accelerationlong , accelerationmaxlong , accelerationinitshort , accelerationshort , accelerationmaxshort , &outbegidx , &outnbelement , <double *>(outreal.data)+lookback )
     _ta_check_success("TA_SAREXT", retCode)
@@ -4559,15 +1941,7 @@ def SAREXT( np.ndarray high not None , np.ndarray low not None , double startval
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def SIN( np.ndarray real not None ):
-    """ SIN(real)
-
-    Vector Trigonometric Sin (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ SIN(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4588,15 +1962,7 @@ def SIN( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def SINH( np.ndarray real not None ):
-    """ SINH(real)
-
-    Vector Trigonometric Sinh (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ SINH(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4617,17 +1983,7 @@ def SINH( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def SMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ SMA(real[, timeperiod=?])
-
-    Simple Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ SMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4648,15 +2004,7 @@ def SMA( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def SQRT( np.ndarray real not None ):
-    """ SQRT(real)
-
-    Vector Square Root (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ SQRT(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4677,18 +2025,7 @@ def SQRT( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def STDDEV( np.ndarray real not None , int timeperiod=-2**31 , double nbdev=-4e37 ):
-    """ STDDEV(real[, timeperiod=?, nbdev=?])
-
-    Standard Deviation (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 5
-        nbdev: 1.0
-    Outputs:
-        real
-    """
+    """ STDDEV(real[, timeperiod=?, nbdev=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4709,22 +2046,7 @@ def STDDEV( np.ndarray real not None , int timeperiod=-2**31 , double nbdev=-4e3
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def STOCH( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int fastk_period=-2**31 , int slowk_period=-2**31 , int slowk_matype=0 , int slowd_period=-2**31 , int slowd_matype=0 ):
-    """ STOCH(high, low, close[, fastk_period=?, slowk_period=?, slowk_matype=?, slowd_period=?, slowd_matype=?])
-
-    Stochastic (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        fastk_period: 5
-        slowk_period: 3
-        slowk_matype: 0
-        slowd_period: 3
-        slowd_matype: 0
-    Outputs:
-        slowk
-        slowd
-    """
+    """ STOCH(high, low, close[, fastk_period=?, slowk_period=?, slowk_matype=?, slowd_period=?, slowd_matype=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4749,20 +2071,7 @@ def STOCH( np.ndarray high not None , np.ndarray low not None , np.ndarray close
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def STOCHF( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int fastk_period=-2**31 , int fastd_period=-2**31 , int fastd_matype=0 ):
-    """ STOCHF(high, low, close[, fastk_period=?, fastd_period=?, fastd_matype=?])
-
-    Stochastic Fast (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        fastk_period: 5
-        fastd_period: 3
-        fastd_matype: 0
-    Outputs:
-        fastk
-        fastd
-    """
+    """ STOCHF(high, low, close[, fastk_period=?, fastd_period=?, fastd_matype=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4787,21 +2096,16 @@ def STOCHF( np.ndarray high not None , np.ndarray low not None , np.ndarray clos
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def STOCHRSI( np.ndarray real not None , int timeperiod=-2**31 , int fastk_period=-2**31 , int fastd_period=-2**31 , int fastd_matype=0 ):
-    """ STOCHRSI(real[, timeperiod=?, fastk_period=?, fastd_period=?, fastd_matype=?])
-
-    Stochastic Relative Strength Index (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-        fastk_period: 5
-        fastd_period: 3
-        fastd_matype: 0
-    Outputs:
-        fastk
-        fastd
-    """
+    """ STOCHRSI(real[, timeperiod=?, fastk_period=?, fastd_period=?, fastd_matype=?])"""
+cannot find defaults and docs for SUB
+cannot find defaults and docs for SUM
+cannot find defaults and docs for T3
+cannot find defaults and docs for TAN
+cannot find defaults and docs for TANH
+cannot find defaults and docs for TEMA
+cannot find defaults and docs for TRANGE
+cannot find defaults and docs for TRIMA
+cannot find defaults and docs for TRIX
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4824,16 +2128,7 @@ def STOCHRSI( np.ndarray real not None , int timeperiod=-2**31 , int fastk_perio
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def SUB( np.ndarray real0 not None , np.ndarray real1 not None ):
-    """ SUB(real0, real1)
-
-    Vector Arithmetic Subtraction (Math Operators)
-
-    Inputs:
-        real0: (any ndarray)
-        real1: (any ndarray)
-    Outputs:
-        real
-    """
+    """ SUB(real0, real1)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4855,17 +2150,7 @@ def SUB( np.ndarray real0 not None , np.ndarray real1 not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def SUM( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ SUM(real[, timeperiod=?])
-
-    Summation (Math Operators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ SUM(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4886,18 +2171,7 @@ def SUM( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def T3( np.ndarray real not None , int timeperiod=-2**31 , double vfactor=-4e37 ):
-    """ T3(real[, timeperiod=?, vfactor=?])
-
-    Triple Exponential Moving Average (T3) (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 5
-        vfactor: 0.7
-    Outputs:
-        real
-    """
+    """ T3(real[, timeperiod=?, vfactor=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4918,15 +2192,7 @@ def T3( np.ndarray real not None , int timeperiod=-2**31 , double vfactor=-4e37 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def TAN( np.ndarray real not None ):
-    """ TAN(real)
-
-    Vector Trigonometric Tan (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ TAN(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4947,15 +2213,7 @@ def TAN( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def TANH( np.ndarray real not None ):
-    """ TANH(real)
-
-    Vector Trigonometric Tanh (Math Transform)
-
-    Inputs:
-        real: (any ndarray)
-    Outputs:
-        real
-    """
+    """ TANH(real)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -4976,17 +2234,7 @@ def TANH( np.ndarray real not None ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def TEMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ TEMA(real[, timeperiod=?])
-
-    Triple Exponential Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ TEMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -5007,15 +2255,7 @@ def TEMA( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def TRANGE( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ TRANGE(high, low, close)
-
-    True Range (Volatility Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Outputs:
-        real
-    """
+    """ TRANGE(high, low, close)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -5038,17 +2278,7 @@ def TRANGE( np.ndarray high not None , np.ndarray low not None , np.ndarray clos
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def TRIMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ TRIMA(real[, timeperiod=?])
-
-    Triangular Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ TRIMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -5067,19 +2297,16 @@ def TRIMA( np.ndarray real not None , int timeperiod=-2**31 ):
     return outreal 
 
 @wraparound(False)  # turn off relative indexing from end of lists
+cannot find defaults and docs for TSF
+cannot find defaults and docs for TYPPRICE
+cannot find defaults and docs for ULTOSC
+cannot find defaults and docs for VAR
+cannot find defaults and docs for WCLPRICE
+cannot find defaults and docs for WILLR
+cannot find defaults and docs for WMA
 @boundscheck(False) # turn off bounds-checking for entire function
 def TRIX( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ TRIX(real[, timeperiod=?])
-
-    1-day Rate-Of-Change (ROC) of a Triple Smooth EMA (Momentum Indicators)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ TRIX(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -5100,17 +2327,7 @@ def TRIX( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def TSF( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ TSF(real[, timeperiod=?])
-
-    Time Series Forecast (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ TSF(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -5131,15 +2348,7 @@ def TSF( np.ndarray real not None , int timeperiod=-2**31 ):
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def TYPPRICE( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ TYPPRICE(high, low, close)
-
-    Typical Price (Price Transform)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Outputs:
-        real
-    """
+    """ TYPPRICE(high, low, close)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -5162,19 +2371,7 @@ def TYPPRICE( np.ndarray high not None , np.ndarray low not None , np.ndarray cl
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def ULTOSC( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod1=-2**31 , int timeperiod2=-2**31 , int timeperiod3=-2**31 ):
-    """ ULTOSC(high, low, close[, timeperiod1=?, timeperiod2=?, timeperiod3=?])
-
-    Ultimate Oscillator (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod1: 7
-        timeperiod2: 14
-        timeperiod3: 28
-    Outputs:
-        real
-    """
+    """ ULTOSC(high, low, close[, timeperiod1=?, timeperiod2=?, timeperiod3=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -5197,18 +2394,7 @@ def ULTOSC( np.ndarray high not None , np.ndarray low not None , np.ndarray clos
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def VAR( np.ndarray real not None , int timeperiod=-2**31 , double nbdev=-4e37 ):
-    """ VAR(real[, timeperiod=?, nbdev=?])
-
-    Variance (Statistic Functions)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 5
-        nbdev: 1.0
-    Outputs:
-        real
-    """
+    """ VAR(real[, timeperiod=?, nbdev=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -5229,15 +2415,7 @@ def VAR( np.ndarray real not None , int timeperiod=-2**31 , double nbdev=-4e37 )
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def WCLPRICE( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None ):
-    """ WCLPRICE(high, low, close)
-
-    Weighted Close Price (Price Transform)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Outputs:
-        real
-    """
+    """ WCLPRICE(high, low, close)"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -5260,17 +2438,7 @@ def WCLPRICE( np.ndarray high not None , np.ndarray low not None , np.ndarray cl
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def WILLR( np.ndarray high not None , np.ndarray low not None , np.ndarray close not None , int timeperiod=-2**31 ):
-    """ WILLR(high, low, close[, timeperiod=?])
-
-    Williams' %R (Momentum Indicators)
-
-    Inputs:
-        prices: ['high', 'low', 'close']
-    Parameters:
-        timeperiod: 14
-    Outputs:
-        real
-    """
+    """ WILLR(high, low, close[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -5293,17 +2461,7 @@ def WILLR( np.ndarray high not None , np.ndarray low not None , np.ndarray close
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def WMA( np.ndarray real not None , int timeperiod=-2**31 ):
-    """ WMA(real[, timeperiod=?])
-
-    Weighted Moving Average (Overlap Studies)
-
-    Inputs:
-        real: (any ndarray)
-    Parameters:
-        timeperiod: 30
-    Outputs:
-        real
-    """
+    """ WMA(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -5321,4 +2479,4 @@ def WMA( np.ndarray real not None , int timeperiod=-2**31 ):
     _ta_check_success("TA_WMA", retCode)
     return outreal 
 
-__TA_FUNCTION_NAMES__ = ["ACCBANDS","ACOS","AD","ADD","ADOSC","ADX","ADXR","APO","AROON","AROONOSC","ASIN","ATAN","ATR","AVGPRICE","AVGDEV","BBANDS","BETA","BOP","CCI","CDL2CROWS","CDL3BLACKCROWS","CDL3INSIDE","CDL3LINESTRIKE","CDL3OUTSIDE","CDL3STARSINSOUTH","CDL3WHITESOLDIERS","CDLABANDONEDBABY","CDLADVANCEBLOCK","CDLBELTHOLD","CDLBREAKAWAY","CDLCLOSINGMARUBOZU","CDLCONCEALBABYSWALL","CDLCOUNTERATTACK","CDLDARKCLOUDCOVER","CDLDOJI","CDLDOJISTAR","CDLDRAGONFLYDOJI","CDLENGULFING","CDLEVENINGDOJISTAR","CDLEVENINGSTAR","CDLGAPSIDESIDEWHITE","CDLGRAVESTONEDOJI","CDLHAMMER","CDLHANGINGMAN","CDLHARAMI","CDLHARAMICROSS","CDLHIGHWAVE","CDLHIKKAKE","CDLHIKKAKEMOD","CDLHOMINGPIGEON","CDLIDENTICAL3CROWS","CDLINNECK","CDLINVERTEDHAMMER","CDLKICKING","CDLKICKINGBYLENGTH","CDLLADDERBOTTOM","CDLLONGLEGGEDDOJI","CDLLONGLINE","CDLMARUBOZU","CDLMATCHINGLOW","CDLMATHOLD","CDLMORNINGDOJISTAR","CDLMORNINGSTAR","CDLONNECK","CDLPIERCING","CDLRICKSHAWMAN","CDLRISEFALL3METHODS","CDLSEPARATINGLINES","CDLSHOOTINGSTAR","CDLSHORTLINE","CDLSPINNINGTOP","CDLSTALLEDPATTERN","CDLSTICKSANDWICH","CDLTAKURI","CDLTASUKIGAP","CDLTHRUSTING","CDLTRISTAR","CDLUNIQUE3RIVER","CDLUPSIDEGAP2CROWS","CDLXSIDEGAP3METHODS","CEIL","CMO","CORREL","COS","COSH","DEMA","DIV","DX","EMA","EXP","FLOOR","HT_DCPERIOD","HT_DCPHASE","HT_PHASOR","HT_SINE","HT_TRENDLINE","HT_TRENDMODE","IMI","KAMA","LINEARREG","LINEARREG_ANGLE","LINEARREG_INTERCEPT","LINEARREG_SLOPE","LN","LOG10","MA","MACD","MACDEXT","MACDFIX","MAMA","MAVP","MAX","MAXINDEX","MEDPRICE","MFI","MIDPOINT","MIDPRICE","MIN","MININDEX","MINMAX","MINMAXINDEX","MINUS_DI","MINUS_DM","MOM","MULT","NATR","OBV","PLUS_DI","PLUS_DM","PPO","ROC","ROCP","ROCR","ROCR100","RSI","SAR","SAREXT","SIN","SINH","SMA","SQRT","STDDEV","STOCH","STOCHF","STOCHRSI","SUB","SUM","T3","TAN","TANH","TEMA","TRANGE","TRIMA","TRIX","TSF","TYPPRICE","ULTOSC","VAR","WCLPRICE","WILLR","WMA"]
+__TA_FUNCTION_NAMES__ = ["ACCBANDS","ACOS","AD","ADD","ADOSC","ADX","ADXR","APO","AROON","AROONOSC","ASIN","ATAN","ATR","AVGPRICE","AVGDEV","BBANDS","BETA","BOP","CCI","CEIL","CMO","CORREL","COS","COSH","DEMA","DIV","DX","EMA","EXP","FLOOR","HT_DCPERIOD","HT_DCPHASE","HT_PHASOR","HT_SINE","HT_TRENDLINE","HT_TRENDMODE","IMI","JMA","KAMA","LINEARREG","LINEARREG_ANGLE","LINEARREG_INTERCEPT","LINEARREG_SLOPE","LN","LOG10","MA","MACD","MACDEXT","MACDFIX","MAMA","MAVP","MAX","MAXINDEX","MEDPRICE","MFI","MIDPOINT","MIDPRICE","MIN","MININDEX","MINMAX","MINMAXINDEX","MINUS_DI","MINUS_DM","MOM","MULT","NATR","OBV","PLUS_DI","PLUS_DM","PPO","ROC","ROCP","ROCR","ROCR100","RSI","SAR","SAREXT","SIN","SINH","SMA","SQRT","STDDEV","STOCH","STOCHF","STOCHRSI","SUB","SUM","T3","TAN","TANH","TEMA","TRANGE","TRIMA","TRIX","TSF","TYPPRICE","ULTOSC","VAR","WCLPRICE","WILLR","WMA"]

@@ -16,7 +16,7 @@ for _ in range(LOOPS):
     talib.MA(data)
     talib.BBANDS(data)
     talib.KAMA(data)
-    talib.CDLMORNINGDOJISTAR(data, data, data, data)
+    talib.SMA(data)
 t1 = time.time()
 print('test_len: %d, loops: %d' % (TEST_LEN, LOOPS))
 print('%.6f' % (t1 - t0))

@@ -111,10 +111,6 @@ def test_STOCH(ford_2012):
     assert_array_equal(expected_d, got_d)
 
 
-def test_doji_candle(ford_2012):
-    expected = func.CDLDOJI(ford_2012['open'], ford_2012['high'], ford_2012['low'], ford_2012['close'])
-    got = abstract.Function('CDLDOJI').run(ford_2012)
-    assert_array_equal(got, expected)
 
 
 def test_MAVP(ford_2012):

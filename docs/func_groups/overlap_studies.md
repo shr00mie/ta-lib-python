@@ -26,6 +26,11 @@ NOTE: The ``HT_TRENDLINE`` function has an unstable period.
 real = HT_TRENDLINE(real)
 ```
 
+### JMA - Jurik Moving Average
+```python
+jma, upperband, lowerband = JMA(real, timeperiod=7, phase=0, volperiods=50)
+```
+
 ### KAMA - Kaufman Adaptive Moving Average
 NOTE: The ``KAMA`` function has an unstable period.  
 ```python

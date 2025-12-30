@@ -1,12 +1,3 @@
-cannot find defaults and docs for ACCBANDS
-cannot find defaults and docs for ACOS
-cannot find defaults and docs for AD
-cannot find defaults and docs for ADD
-cannot find defaults and docs for ADOSC
-cannot find defaults and docs for ADX
-cannot find defaults and docs for ADXR
-cannot find defaults and docs for APO
-cannot find defaults and docs for AROON
 cimport numpy as np
 from cython import boundscheck, wraparound
 cimport _ta_lib as lib
@@ -212,16 +203,7 @@ def stream_APO( np.ndarray real not None , int fastperiod=-2**31 , int slowperio
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
-def stream_AROON( np.ndarray high not None , cannot find defaults and docs for AROONOSC
-cannot find defaults and docs for ASIN
-cannot find defaults and docs for ATAN
-cannot find defaults and docs for ATR
-cannot find defaults and docs for AVGPRICE
-cannot find defaults and docs for AVGDEV
-cannot find defaults and docs for BBANDS
-cannot find defaults and docs for BETA
-cannot find defaults and docs for BOP
-np.ndarray low not None , int timeperiod=-2**31 ):
+def stream_AROON( np.ndarray high not None , np.ndarray low not None , int timeperiod=-2**31 ):
     """ AROON(high, low[, timeperiod=?])"""
     cdef:
         np.npy_intp length
@@ -433,16 +415,6 @@ def stream_BOP( np.ndarray open not None , np.ndarray high not None , np.ndarray
         double* close_data
         int outbegidx
         int outnbelement
-cannot find defaults and docs for CCI
-cannot find defaults and docs for CEIL
-cannot find defaults and docs for CMO
-cannot find defaults and docs for CORREL
-cannot find defaults and docs for COS
-cannot find defaults and docs for COSH
-cannot find defaults and docs for DEMA
-cannot find defaults and docs for DIV
-cannot find defaults and docs for DX
-cannot find defaults and docs for EMA
         double outreal
     open = check_array(open)
     open_data = <double*>open.data
@@ -662,18 +634,7 @@ def stream_EMA( np.ndarray real not None , int timeperiod=-2**31 ):
     real_data = <double*>real.data
     length = real.shape[0]
     outreal = NaN
-    retCode = lib.TA_EMA( <int>(length) - 1 , <int>(length) - 1 , real_data , timeperiod , cannot find defaults and docs for EXP
-cannot find defaults and docs for FLOOR
-cannot find defaults and docs for HT_DCPERIOD
-cannot find defaults and docs for HT_DCPHASE
-cannot find defaults and docs for HT_PHASOR
-cannot find defaults and docs for HT_SINE
-cannot find defaults and docs for HT_TRENDLINE
-cannot find defaults and docs for HT_TRENDMODE
-cannot find defaults and docs for IMI
-cannot find defaults and docs for JMA
-cannot find defaults and docs for KAMA
-&outbegidx , &outnbelement , &outreal )
+    retCode = lib.TA_EMA( <int>(length) - 1 , <int>(length) - 1 , real_data , timeperiod , &outbegidx , &outnbelement , &outreal )
     _ta_check_success("TA_EMA", retCode)
     return outreal 
 
@@ -857,7 +818,7 @@ def stream_IMI( np.ndarray open not None , np.ndarray close not None , int timep
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
-def stream_JMA( np.ndarray real not None , int timeperiod=7 , int phase=0 , int volperiods=50 ):
+def stream_JMA( np.ndarray real not None , int timeperiod=-2**31 , int phase=-2**31 , int volperiods=-2**31 ):
     """ JMA(real[, timeperiod=?, phase=?, volperiods=?])"""
     cdef:
         np.npy_intp length
@@ -895,17 +856,6 @@ def stream_KAMA( np.ndarray real not None , int timeperiod=-2**31 ):
     outreal = NaN
     retCode = lib.TA_KAMA( <int>(length) - 1 , <int>(length) - 1 , real_data , timeperiod , &outbegidx , &outnbelement , &outreal )
     _ta_check_success("TA_KAMA", retCode)
-cannot find defaults and docs for LINEARREG
-cannot find defaults and docs for LINEARREG_ANGLE
-cannot find defaults and docs for LINEARREG_INTERCEPT
-cannot find defaults and docs for LINEARREG_SLOPE
-cannot find defaults and docs for LN
-cannot find defaults and docs for LOG10
-cannot find defaults and docs for MA
-cannot find defaults and docs for MACD
-cannot find defaults and docs for MACDEXT
-cannot find defaults and docs for MACDFIX
-cannot find defaults and docs for MAMA
     return outreal 
 
 @wraparound(False)  # turn off relative indexing from end of lists
@@ -1112,17 +1062,7 @@ def stream_MACDFIX( np.ndarray real not None , int signalperiod=-2**31 ):
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
-def stream_MAMA( cannot find defaults and docs for MAVP
-cannot find defaults and docs for MAX
-cannot find defaults and docs for MAXINDEX
-cannot find defaults and docs for MEDPRICE
-cannot find defaults and docs for MFI
-cannot find defaults and docs for MIDPOINT
-cannot find defaults and docs for MIDPRICE
-cannot find defaults and docs for MIN
-cannot find defaults and docs for MININDEX
-cannot find defaults and docs for MINMAX
-np.ndarray real not None , double fastlimit=-4e37 , double slowlimit=-4e37 ):
+def stream_MAMA( np.ndarray real not None , double fastlimit=-4e37 , double slowlimit=-4e37 ):
     """ MAMA(real[, fastlimit=?, slowlimit=?])"""
     cdef:
         np.npy_intp length
@@ -1332,16 +1272,7 @@ def stream_MININDEX( np.ndarray real not None , int timeperiod=-2**31 ):
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
-def stream_MINMAX( np.ndarray real not Nonecannot find defaults and docs for MINMAXINDEX
-cannot find defaults and docs for MINUS_DI
-cannot find defaults and docs for MINUS_DM
-cannot find defaults and docs for MOM
-cannot find defaults and docs for MULT
-cannot find defaults and docs for NATR
-cannot find defaults and docs for OBV
-cannot find defaults and docs for PLUS_DI
-cannot find defaults and docs for PLUS_DM
- , int timeperiod=-2**31 ):
+def stream_MINMAX( np.ndarray real not None , int timeperiod=-2**31 ):
     """ MINMAX(real[, timeperiod=?])"""
     cdef:
         np.npy_intp length
@@ -1557,17 +1488,6 @@ def stream_PLUS_DM( np.ndarray high not None , np.ndarray low not None , int tim
     high_data = <double*>high.data
     low = check_array(low)
     low_data = <double*>low.data
-cannot find defaults and docs for PPO
-cannot find defaults and docs for ROC
-cannot find defaults and docs for ROCP
-cannot find defaults and docs for ROCR
-cannot find defaults and docs for ROCR100
-cannot find defaults and docs for RSI
-cannot find defaults and docs for SAR
-cannot find defaults and docs for SAREXT
-cannot find defaults and docs for SIN
-cannot find defaults and docs for SINH
-cannot find defaults and docs for SMA
     length = check_length2(high, low)
     outreal = NaN
     retCode = lib.TA_PLUS_DM( <int>(length) - 1 , <int>(length) - 1 , high_data , low_data , timeperiod , &outbegidx , &outnbelement , &outreal )
@@ -1770,15 +1690,6 @@ def stream_SINH( np.ndarray real not None ):
     _ta_check_success("TA_SINH", retCode)
     return outreal 
 
-cannot find defaults and docs for SQRT
-cannot find defaults and docs for STDDEV
-cannot find defaults and docs for STOCH
-cannot find defaults and docs for STOCHF
-cannot find defaults and docs for STOCHRSI
-cannot find defaults and docs for SUB
-cannot find defaults and docs for SUM
-cannot find defaults and docs for T3
-cannot find defaults and docs for TAN
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
 def stream_SMA( np.ndarray real not None , int timeperiod=-2**31 ):
@@ -1983,16 +1894,6 @@ def stream_TAN( np.ndarray real not None ):
         int outnbelement
         double outreal
     real = check_array(real)
-cannot find defaults and docs for TANH
-cannot find defaults and docs for TEMA
-cannot find defaults and docs for TRANGE
-cannot find defaults and docs for TRIMA
-cannot find defaults and docs for TRIX
-cannot find defaults and docs for TSF
-cannot find defaults and docs for TYPPRICE
-cannot find defaults and docs for ULTOSC
-cannot find defaults and docs for VAR
-cannot find defaults and docs for WCLPRICE
     real_data = <double*>real.data
     length = real.shape[0]
     outreal = NaN
@@ -2208,8 +2109,6 @@ def stream_WCLPRICE( np.ndarray high not None , np.ndarray low not None , np.nda
     low_data = <double*>low.data
     close = check_array(close)
     close_data = <double*>close.data
-cannot find defaults and docs for WILLR
-cannot find defaults and docs for WMA
     length = check_length3(high, low, close)
     outreal = NaN
     retCode = lib.TA_WCLPRICE( <int>(length) - 1 , <int>(length) - 1 , high_data , low_data , close_data , &outbegidx , &outnbelement , &outreal )

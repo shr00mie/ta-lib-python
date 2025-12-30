@@ -1,7 +1,3 @@
-cannot find defaults and docs for ACCBANDS
-cannot find defaults and docs for ACOS
-cannot find defaults and docs for AD
-cannot find defaults and docs for ADD
 cimport numpy as np
 from numpy import nan
 from cython import boundscheck, wraparound
@@ -231,14 +227,6 @@ def ADD( np.ndarray real0 not None , np.ndarray real1 not None ):
     length = check_length2(real0, real1)
     begidx = check_begidx2(length, <double*>(real0.data), <double*>(real1.data))
     endidx = <int>length - begidx - 1
-cannot find defaults and docs for ADOSC
-cannot find defaults and docs for ADX
-cannot find defaults and docs for ADXR
-cannot find defaults and docs for APO
-cannot find defaults and docs for AROON
-cannot find defaults and docs for AROONOSC
-cannot find defaults and docs for ASIN
-cannot find defaults and docs for ATAN
     lookback = begidx + lib.TA_ADD_Lookback( )
     outreal = make_double_array(length, lookback)
     retCode = lib.TA_ADD( 0 , endidx , <double *>(real0.data)+begidx , <double *>(real1.data)+begidx , &outbegidx , &outnbelement , <double *>(outreal.data)+lookback )
@@ -411,13 +399,6 @@ def ATAN( np.ndarray real not None ):
         np.npy_intp length
         int begidx, endidx, lookback
         TA_RetCode retCode
-cannot find defaults and docs for ATR
-cannot find defaults and docs for AVGPRICE
-cannot find defaults and docs for AVGDEV
-cannot find defaults and docs for BBANDS
-cannot find defaults and docs for BETA
-cannot find defaults and docs for BOP
-cannot find defaults and docs for CCI
         int outbegidx
         int outnbelement
         np.ndarray outreal
@@ -588,15 +569,6 @@ def CCI( np.ndarray high not None , np.ndarray low not None , np.ndarray close n
     begidx = check_begidx3(length, <double*>(high.data), <double*>(low.data), <double*>(close.data))
     endidx = <int>length - begidx - 1
     lookback = begidx + lib.TA_CCI_Lookback( timeperiod )
-cannot find defaults and docs for CEIL
-cannot find defaults and docs for CMO
-cannot find defaults and docs for CORREL
-cannot find defaults and docs for COS
-cannot find defaults and docs for COSH
-cannot find defaults and docs for DEMA
-cannot find defaults and docs for DIV
-cannot find defaults and docs for DX
-cannot find defaults and docs for EMA
     outreal = make_double_array(length, lookback)
     retCode = lib.TA_CCI( 0 , endidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , <double *>(close.data)+begidx , timeperiod , &outbegidx , &outnbelement , <double *>(outreal.data)+lookback )
     _ta_check_success("TA_CCI", retCode)
@@ -789,15 +761,6 @@ def EMA( np.ndarray real not None , int timeperiod=-2**31 ):
     length = real.shape[0]
     begidx = check_begidx1(length, <double*>(real.data))
     endidx = <int>length - begidx - 1
-cannot find defaults and docs for EXP
-cannot find defaults and docs for FLOOR
-cannot find defaults and docs for HT_DCPERIOD
-cannot find defaults and docs for HT_DCPHASE
-cannot find defaults and docs for HT_PHASOR
-cannot find defaults and docs for HT_SINE
-cannot find defaults and docs for HT_TRENDLINE
-cannot find defaults and docs for HT_TRENDMODE
-cannot find defaults and docs for IMI
     lookback = begidx + lib.TA_EMA_Lookback( timeperiod )
     outreal = make_double_array(length, lookback)
     retCode = lib.TA_EMA( 0 , endidx , <double *>(real.data)+begidx , timeperiod , &outbegidx , &outnbelement , <double *>(outreal.data)+lookback )
@@ -994,22 +957,13 @@ def IMI( np.ndarray open not None , np.ndarray close not None , int timeperiod=-
     endidx = <int>length - begidx - 1
     lookback = begidx + lib.TA_IMI_Lookback( timeperiod )
     outreal = make_double_array(length, lookback)
-    retCode = lib.TA_IMI( 0 , endidx , <double *>(open.data)+begidx , cannot find defaults and docs for JMA
-cannot find defaults and docs for KAMA
-cannot find defaults and docs for LINEARREG
-cannot find defaults and docs for LINEARREG_ANGLE
-cannot find defaults and docs for LINEARREG_INTERCEPT
-cannot find defaults and docs for LINEARREG_SLOPE
-cannot find defaults and docs for LN
-cannot find defaults and docs for LOG10
-cannot find defaults and docs for MA
-<double *>(close.data)+begidx , timeperiod , &outbegidx , &outnbelement , <double *>(outreal.data)+lookback )
+    retCode = lib.TA_IMI( 0 , endidx , <double *>(open.data)+begidx , <double *>(close.data)+begidx , timeperiod , &outbegidx , &outnbelement , <double *>(outreal.data)+lookback )
     _ta_check_success("TA_IMI", retCode)
     return outreal 
 
 @wraparound(False)  # turn off relative indexing from end of lists
 @boundscheck(False) # turn off bounds-checking for entire function
-def JMA( np.ndarray real not None , int timeperiod=7 , int phase=0 , int volperiods=50 ):
+def JMA( np.ndarray real not None , int timeperiod=-2**31 , int phase=-2**31 , int volperiods=-2**31 ):
     """ JMA(real[, timeperiod=?, phase=?, volperiods=?])"""
     cdef:
         np.npy_intp length
@@ -1191,13 +1145,6 @@ def MA( np.ndarray real not None , int timeperiod=-2**31 , int matype=0 ):
         int outnbelement
         np.ndarray outreal
     real = check_array(real)
-cannot find defaults and docs for MACD
-cannot find defaults and docs for MACDEXT
-cannot find defaults and docs for MACDFIX
-cannot find defaults and docs for MAMA
-cannot find defaults and docs for MAVP
-cannot find defaults and docs for MAX
-cannot find defaults and docs for MAXINDEX
     length = real.shape[0]
     begidx = check_begidx1(length, <double*>(real.data))
     endidx = <int>length - begidx - 1
@@ -1364,14 +1311,6 @@ def MAXINDEX( np.ndarray real not None , int timeperiod=-2**31 ):
     begidx = check_begidx1(length, <double*>(real.data))
     endidx = <int>length - begidx - 1
     lookback = begidx + lib.TA_MAXINDEX_Lookback( timeperiod )
-cannot find defaults and docs for MEDPRICE
-cannot find defaults and docs for MFI
-cannot find defaults and docs for MIDPOINT
-cannot find defaults and docs for MIDPRICE
-cannot find defaults and docs for MIN
-cannot find defaults and docs for MININDEX
-cannot find defaults and docs for MINMAX
-cannot find defaults and docs for MINMAXINDEX
     outinteger = make_int_array(length, lookback)
     retCode = lib.TA_MAXINDEX( 0 , endidx , <double *>(real.data)+begidx , timeperiod , &outbegidx , &outnbelement , <int *>(outinteger.data)+lookback )
     _ta_check_success("TA_MAXINDEX", retCode)
@@ -1555,14 +1494,6 @@ def MINMAXINDEX( np.ndarray real not None , int timeperiod=-2**31 ):
     endidx = <int>length - begidx - 1
     lookback = begidx + lib.TA_MINMAXINDEX_Lookback( timeperiod )
     outminidx = make_int_array(length, lookback)
-cannot find defaults and docs for MINUS_DI
-cannot find defaults and docs for MINUS_DM
-cannot find defaults and docs for MOM
-cannot find defaults and docs for MULT
-cannot find defaults and docs for NATR
-cannot find defaults and docs for OBV
-cannot find defaults and docs for PLUS_DI
-cannot find defaults and docs for PLUS_DM
     outmaxidx = make_int_array(length, lookback)
     retCode = lib.TA_MINMAXINDEX( 0 , endidx , <double *>(real.data)+begidx , timeperiod , &outbegidx , &outnbelement , <int *>(outminidx.data)+lookback , <int *>(outmaxidx.data)+lookback )
     _ta_check_success("TA_MINMAXINDEX", retCode)
@@ -1739,14 +1670,6 @@ def PLUS_DM( np.ndarray high not None , np.ndarray low not None , int timeperiod
         int begidx, endidx, lookback
         TA_RetCode retCode
         int outbegidx
-cannot find defaults and docs for PPO
-cannot find defaults and docs for ROC
-cannot find defaults and docs for ROCP
-cannot find defaults and docs for ROCR
-cannot find defaults and docs for ROCR100
-cannot find defaults and docs for RSI
-cannot find defaults and docs for SAR
-cannot find defaults and docs for SAREXT
         int outnbelement
         np.ndarray outreal
     high = check_array(high)
@@ -1924,15 +1847,7 @@ def SAREXT( np.ndarray high not None , np.ndarray low not None , double startval
     length = check_length2(high, low)
     begidx = check_begidx2(length, <double*>(high.data), <double*>(low.data))
     endidx = <int>length - begidx - 1
-    lookback = begidx + lib.TA_SAREXT_Lookback( startvalue , cannot find defaults and docs for SIN
-cannot find defaults and docs for SINH
-cannot find defaults and docs for SMA
-cannot find defaults and docs for SQRT
-cannot find defaults and docs for STDDEV
-cannot find defaults and docs for STOCH
-cannot find defaults and docs for STOCHF
-cannot find defaults and docs for STOCHRSI
-offsetonreverse , accelerationinitlong , accelerationlong , accelerationmaxlong , accelerationinitshort , accelerationshort , accelerationmaxshort )
+    lookback = begidx + lib.TA_SAREXT_Lookback( startvalue , offsetonreverse , accelerationinitlong , accelerationlong , accelerationmaxlong , accelerationinitshort , accelerationshort , accelerationmaxshort )
     outreal = make_double_array(length, lookback)
     retCode = lib.TA_SAREXT( 0 , endidx , <double *>(high.data)+begidx , <double *>(low.data)+begidx , startvalue , offsetonreverse , accelerationinitlong , accelerationlong , accelerationmaxlong , accelerationinitshort , accelerationshort , accelerationmaxshort , &outbegidx , &outnbelement , <double *>(outreal.data)+lookback )
     _ta_check_success("TA_SAREXT", retCode)
@@ -2097,15 +2012,6 @@ def STOCHF( np.ndarray high not None , np.ndarray low not None , np.ndarray clos
 @boundscheck(False) # turn off bounds-checking for entire function
 def STOCHRSI( np.ndarray real not None , int timeperiod=-2**31 , int fastk_period=-2**31 , int fastd_period=-2**31 , int fastd_matype=0 ):
     """ STOCHRSI(real[, timeperiod=?, fastk_period=?, fastd_period=?, fastd_matype=?])"""
-cannot find defaults and docs for SUB
-cannot find defaults and docs for SUM
-cannot find defaults and docs for T3
-cannot find defaults and docs for TAN
-cannot find defaults and docs for TANH
-cannot find defaults and docs for TEMA
-cannot find defaults and docs for TRANGE
-cannot find defaults and docs for TRIMA
-cannot find defaults and docs for TRIX
     cdef:
         np.npy_intp length
         int begidx, endidx, lookback
@@ -2297,13 +2203,6 @@ def TRIMA( np.ndarray real not None , int timeperiod=-2**31 ):
     return outreal 
 
 @wraparound(False)  # turn off relative indexing from end of lists
-cannot find defaults and docs for TSF
-cannot find defaults and docs for TYPPRICE
-cannot find defaults and docs for ULTOSC
-cannot find defaults and docs for VAR
-cannot find defaults and docs for WCLPRICE
-cannot find defaults and docs for WILLR
-cannot find defaults and docs for WMA
 @boundscheck(False) # turn off bounds-checking for entire function
 def TRIX( np.ndarray real not None , int timeperiod=-2**31 ):
     """ TRIX(real[, timeperiod=?])"""

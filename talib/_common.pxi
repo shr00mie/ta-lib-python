@@ -121,12 +121,19 @@ class RangeType(object):
 
 RangeType = RangeType()
 
+# Note: TA_SetCandleSettings and TA_RestoreCandleDefaultSettings are not available in this version of TA-Lib
+# def _ta_set_candle_settings(settingtype, rangetype, avgperiod, factor):
+#     cdef TA_RetCode ret_code
+#     ret_code = lib.TA_SetCandleSettings(settingtype, rangetype, avgperiod, factor)
+#     _ta_check_success('TA_SetCandleSettings', ret_code)
+# 
+# def _ta_restore_candle_default_settings(settingtype):
+#     cdef TA_RetCode ret_code
+#     ret_code = lib.TA_RestoreCandleDefaultSettings(settingtype)
+#     _ta_check_success('TA_RestoreCandleDefaultSettings', ret_code)
+
 def _ta_set_candle_settings(settingtype, rangetype, avgperiod, factor):
-    cdef TA_RetCode ret_code
-    ret_code = lib.TA_SetCandleSettings(settingtype, rangetype, avgperiod, factor)
-    _ta_check_success('TA_SetCandleSettings', ret_code)
+    raise NotImplementedError("TA_SetCandleSettings is not available in this version of TA-Lib")
 
 def _ta_restore_candle_default_settings(settingtype):
-    cdef TA_RetCode ret_code
-    ret_code = lib.TA_RestoreCandleDefaultSettings(settingtype)
-    _ta_check_success('TA_RestoreCandleDefaultSettings', ret_code)
+    raise NotImplementedError("TA_RestoreCandleDefaultSettings is not available in this version of TA-Lib")
